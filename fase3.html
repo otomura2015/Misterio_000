@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mistério - Fase 3</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #111;
+    color: #eee;
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 750px;
+
+    background: #1b1b1b;
+    border: 1px solid #444;
+    border-radius: 12px;
+
+    padding: 35px;
+
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+h1 {
+    text-align: center;
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+.fase {
+    text-align: center;
+    color: #777;
+    margin-top: 8px;
+    margin-bottom: 35px;
+}
+
+.texto {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.imagem {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+
+    border: 1px solid #444;
+    border-radius: 8px;
+}
+
+.pergunta {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+input {
+    display: block;
+
+    width: 100%;
+    max-width: 450px;
+
+    margin: 15px auto 0;
+
+    padding: 13px;
+
+    background: #0d0d0d;
+    color: white;
+
+    border: 1px solid #555;
+    border-radius: 6px;
+
+    font-size: 16px;
+    text-align: center;
+
+    outline: none;
+}
+
+button {
+    display: block;
+
+    margin: 12px auto 0;
+
+    padding: 12px 30px;
+
+    background: #eee;
+    color: #111;
+
+    border: none;
+    border-radius: 6px;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ccc;
+}
+
+#mensagem {
+    text-align: center;
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+.contador {
+    margin-top: 35px;
+
+    text-align: center;
+
+    font-size: 13px;
+    color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>MISTÉRIO</h1>
+
+    <div class="fase">
+        FASE 3
+    </div>
+
+    <div class="texto">
+        <p>Você encontrou uma imagem.</p>
+        <p>Observe com atenção.</p>
+    </div>
+
+    <img
+        src="dentadura.png"
+        alt="Imagem encontrada"
+        class="imagem"
+    >
+
+    <div class="pergunta">
+        <p>O que este objeto representa?</p>
+    </div>
+
+    <input
+        type="text"
+        id="resposta"
+        placeholder="Digite sua resposta..."
+        autocomplete="off"
+    >
+
+    <button onclick="verificar()">
+        CONTINUAR
+    </button>
+
+    <div id="mensagem"></div>
+
+    <div class="contador">
+        FASE 3 DE 25
+    </div>
+
+</div>
+
+<script>
+
+function verificar() {
+
+    const resposta = document
+        .getElementById("resposta")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const mensagem = document.getElementById("mensagem");
+
+    if (
+        resposta === "DENTADURA" ||
+        resposta === "DENTADURAS"
+    ) {
+
+        mensagem.style.color = "#7CFF7C";
+        mensagem.textContent = "Resposta correta.";
+
+        setTimeout(function() {
+            window.location.href = "fase4.html";
+        }, 1200);
+
+    } else {
+
+        mensagem.style.color = "#ff6666";
+        mensagem.textContent = "Resposta incorreta.";
+
+    }
+}
+
+</script>
+
+</body>
+</html>
