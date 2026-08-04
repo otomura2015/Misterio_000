@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mistério - Fase 2</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: #111;
+        color: #eee;
+        font-family: Arial, sans-serif;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 700px;
+
+        background: #1b1b1b;
+        border: 1px solid #444;
+        border-radius: 12px;
+
+        padding: 35px;
+
+        box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+        text-align: center;
+        letter-spacing: 5px;
+        margin: 0;
+    }
+
+    .fase {
+        text-align: center;
+        color: #777;
+        margin-top: 8px;
+        margin-bottom: 35px;
+    }
+
+    .mensagem {
+        text-align: center;
+        margin: 35px 0;
+    }
+
+    .codigo {
+        font-family: monospace;
+        font-size: 30px;
+        letter-spacing: 8px;
+
+        background: #0b0b0b;
+        border: 1px solid #333;
+
+        padding: 25px;
+        margin: 25px 0;
+
+        text-align: center;
+    }
+
+    .senha {
+        text-align: center;
+        margin-top: 35px;
+    }
+
+    input {
+        width: 100%;
+        max-width: 400px;
+
+        padding: 13px;
+
+        background: #0d0d0d;
+        color: white;
+
+        border: 1px solid #555;
+        border-radius: 6px;
+
+        font-size: 16px;
+        text-align: center;
+
+        outline: none;
+    }
+
+    button {
+        margin-top: 12px;
+
+        padding: 12px 28px;
+
+        background: #eee;
+        color: #111;
+
+        border: none;
+        border-radius: 6px;
+
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #ccc;
+    }
+
+    #mensagem {
+        margin-top: 18px;
+        font-weight: bold;
+    }
+
+    .contador {
+        margin-top: 35px;
+
+        text-align: center;
+
+        font-size: 13px;
+        color: #666;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>MISTÉRIO</h1>
+
+    <div class="fase">
+        FASE 2
+    </div>
+
+    <div class="mensagem">
+
+        <p>
+            Você conseguiu passar pela primeira etapa.
+        </p>
+
+        <p>
+            Mas uma nova mensagem apareceu.
+        </p>
+
+        <div class="codigo">
+            .- ..- .-. .-
+        </div>
+
+        <p>
+            Descubra o que ela significa.
+        </p>
+
+    </div>
+
+    <div class="senha">
+
+        <input
+            type="text"
+            id="senha"
+            placeholder="Digite a resposta..."
+            autocomplete="off"
+        >
+
+        <br>
+
+        <button onclick="verificarSenha()">
+            CONTINUAR
+        </button>
+
+        <div id="mensagem"></div>
+
+    </div>
+
+    <div class="contador">
+        FASE 2 DE 25
+    </div>
+
+</div>
+
+<script>
+
+function verificarSenha() {
+
+    const resposta = document
+        .getElementById("senha")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const mensagem = document.getElementById("mensagem");
+
+    if (resposta === "AURA") {
+
+        mensagem.style.color = "#7CFF7C";
+        mensagem.textContent = "Resposta correta.";
+
+        setTimeout(() => {
+            window.location.href = "fase3.html";
+        }, 1200);
+
+    } else {
+
+        mensagem.style.color = "#ff6666";
+        mensagem.textContent = "Resposta incorreta.";
+
+    }
+}
+
+</script>
+
+</body>
+</html>
