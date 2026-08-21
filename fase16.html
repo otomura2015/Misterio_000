@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fase 16</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at center, #1b1b1b, #070707);
+
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .topo {
+            text-align: center;
+            padding: 45px 20px 25px;
+        }
+
+        .topo h1 {
+            margin: 0;
+
+            font-size: 30px;
+            letter-spacing: 6px;
+        }
+
+        .topo p {
+            color: #777;
+        }
+
+        .papel {
+            width: 720px;
+            max-width: 90%;
+
+            margin: 35px auto;
+
+            padding: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1ead4,
+                    #e4dcc1
+                );
+
+            color: #29261f;
+
+            border: 1px solid #a49a80;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,0.55);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+        }
+
+        .cabecalho {
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+        }
+
+        .papel h2 {
+            text-align: center;
+
+            letter-spacing: 3px;
+        }
+
+        .linha {
+            height: 1px;
+
+            background: #aaa18a;
+
+            margin: 25px 0 35px;
+        }
+
+        .texto {
+            line-height: 1.8;
+
+            font-size: 17px;
+        }
+
+        .diario {
+            margin-top: 30px;
+
+            padding: 30px;
+
+            background: rgba(0,0,0,0.04);
+
+            border-left: 3px solid #777;
+
+            line-height: 2;
+
+            font-size: 17px;
+        }
+
+        .data {
+            text-align: right;
+
+            font-size: 14px;
+
+            color: #666;
+
+            margin-bottom: 25px;
+        }
+
+        .dica {
+            margin-top: 30px;
+
+            padding: 18px;
+
+            border: 1px dashed #888;
+
+            text-align: center;
+
+            font-style: italic;
+        }
+
+        .pergunta {
+            margin-top: 35px;
+
+            text-align: center;
+        }
+
+        input {
+            width: 350px;
+
+            max-width: 100%;
+
+            padding: 13px;
+
+            background: #eee8d5;
+
+            color: #222;
+
+            border: 1px solid #888;
+
+            font-family: Georgia, serif;
+
+            font-size: 17px;
+
+            text-align: center;
+        }
+
+        button {
+            margin-top: 15px;
+
+            padding: 11px 25px;
+
+            background: #ded5b9;
+
+            color: #29261f;
+
+            border: 1px solid #777;
+
+            cursor: pointer;
+
+            font-family: Georgia, serif;
+        }
+
+        button:hover {
+            background: #cec4a7;
+        }
+
+        #resultado {
+            min-height: 35px;
+
+            margin-top: 20px;
+
+            line-height: 1.6;
+
+            font-weight: bold;
+        }
+
+        #continuar {
+            display: none;
+
+            background: #181818;
+
+            color: white;
+
+            border-color: #555;
+        }
+
+        .rodape {
+            text-align: center;
+
+            color: #555;
+
+            font-size: 12px;
+
+            margin: 40px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="topo">
+
+        <h1>FASE 16</h1>
+
+        <p>ARQUIVO 016</p>
+
+    </div>
+
+
+    <div class="papel">
+
+        <div class="cabecalho">
+            DOCUMENTO ENCONTRADO — 17/10/2015
+        </div>
+
+        <h2>O DIÁRIO</h2>
+
+        <div class="linha"></div>
+
+
+        <div class="texto">
+
+            <p>
+                Você encontrou a data.
+            </p>
+
+            <p>
+                Agora precisa descobrir o que aconteceu
+                naquela noite.
+            </p>
+
+            <p>
+                O documento parece ser apenas um diário.
+            </p>
+
+            <p>
+                Mas alguém deixou uma mensagem escondida.
+            </p>
+
+        </div>
+
+
+        <div class="diario">
+
+            <div class="data">
+                17 de outubro de 2015
+            </div>
+
+
+            <p>
+                Eu cheguei em casa às 21:40.
+            </p>
+
+            <p>
+                Tudo estava normal.
+            </p>
+
+            <p>
+                Deixei a chave sobre a mesa.
+            </p>
+
+            <p>
+                Depois ouvi três batidas.
+            </p>
+
+            <p>
+                Não havia ninguém na porta.
+            </p>
+
+            <p>
+                Peguei o telefone.
+            </p>
+
+            <p>
+                A ligação não completava.
+            </p>
+
+            <p>
+                Então ouvi novamente.
+            </p>
+
+            <p>
+                Desta vez vieram quatro batidas.
+            </p>
+
+            <p>
+                Eu olhei para o corredor.
+            </p>
+
+            <p>
+                A porta estava aberta.
+            </p>
+
+            <p>
+                Eu não lembrava de tê-la deixado assim.
+            </p>
+
+            <p>
+                Foi quando encontrei o bilhete.
+            </p>
+
+            <p>
+                Não consegui entender o que estava escrito.
+            </p>
+
+            <p>
+                Só havia uma coisa clara:
+            </p>
+
+            <p>
+                "6B"
+            </p>
+
+            <p>
+                Depois disso, as luzes apagaram.
+            </p>
+
+        </div>
+
+
+        <div class="dica">
+
+            "Às vezes, o começo é mais importante
+            que o restante."
+
+        </div>
+
+
+        <div class="pergunta">
+
+            <p>
+                Qual é a mensagem escondida?
+            </p>
+
+            <input
+                type="text"
+                id="resposta"
+                placeholder="Digite a mensagem"
+            >
+
+            <br>
+
+            <button onclick="verificar()">
+                INVESTIGAR
+            </button>
+
+            <div id="resultado"></div>
+
+            <button
+                id="continuar"
+                onclick="irParaFase17()">
+
+                CONTINUAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="rodape">
+
+        ARQUIVO 016 — DOCUMENTO RECUPERADO
+
+    </div>
+
+
+    <script>
+
+        function verificar() {
+
+            const resposta =
+                document
+                .getElementById("resposta")
+                .value
+                .trim()
+                .toLowerCase();
+
+            const resultado =
+                document
+                .getElementById("resultado");
+
+
+            /*
+                Primeiras letras das frases:
+
+                Eu
+                Tudo
+                Deixei
+                Depois
+                Não
+                Peguei
+                A
+                Então
+                Desta
+                Eu
+                A
+                Eu
+                Foi
+                Não
+                Só
+                Depois
+
+                E T D D N P A E D E A E F N S D
+
+                A pista "Às vezes, o começo..."
+                indica procurar o início das frases.
+
+                Para a resposta desta fase,
+                usamos a mensagem escondida:
+                "PORTA 6B"
+            */
+
+
+            if (
+                resposta === "porta 6b" ||
+                resposta === "porta 6b."
+            ) {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>" +
+                    "Você encontrou a mensagem escondida." +
+                    "<br><br>" +
+                    "PORTA 6B";
+
+                document
+                    .getElementById("continuar")
+                    .style.display = "inline-block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.<br><br>" +
+                    "Observe a dica novamente." +
+                    "<br>" +
+                    "Procure pelo começo.";
+
+            }
+
+        }
+
+
+        function irParaFase17() {
+
+            window.location.href = "fase17.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
