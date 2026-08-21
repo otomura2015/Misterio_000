@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 11 - Caso 171015</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #111;
+            color: #ddd;
+            font-family: Arial, sans-serif;
+        }
+
+        .topo {
+            text-align: center;
+            padding: 35px 20px 20px;
+        }
+
+        .topo h1 {
+            margin: 0;
+            font-size: 30px;
+            letter-spacing: 5px;
+        }
+
+        .topo p {
+            color: #888;
+            margin-top: 12px;
+        }
+
+        .nomes {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 35px 20px;
+        }
+
+        .nome {
+            width: 190px;
+            padding: 20px;
+
+            background: #181818;
+            border: 1px solid #444;
+
+            color: #ddd;
+            font-size: 19px;
+
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .nome:hover {
+            background: #222;
+            transform: translateY(-3px);
+        }
+
+        .folha {
+            display: none;
+
+            width: 750px;
+            max-width: 90%;
+            margin: 30px auto;
+
+            padding: 45px;
+
+            background:
+                linear-gradient(
+                    rgba(245, 239, 218, 0.97),
+                    rgba(232, 224, 197, 0.97)
+                );
+
+            color: #25221c;
+
+            border: 1px solid #9b927b;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.45);
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            text-align: left;
+        }
+
+        .folha h2 {
+            text-align: center;
+            margin-top: 0;
+
+            font-size: 27px;
+            letter-spacing: 2px;
+        }
+
+        .linha {
+            width: 100%;
+            height: 1px;
+            background: #aaa18c;
+            margin: 20px 0 30px;
+        }
+
+        .folha h3 {
+            margin-bottom: 8px;
+        }
+
+        .folha p {
+            line-height: 1.75;
+            font-size: 17px;
+        }
+
+        .provas {
+            margin-top: 25px;
+            padding: 18px;
+
+            border-left: 3px solid #777;
+
+            background: rgba(0,0,0,0.04);
+        }
+
+        .provas ul {
+            line-height: 1.8;
+        }
+
+        .fechar {
+            display: block;
+            margin: 30px auto 0;
+
+            padding: 10px 25px;
+
+            background: transparent;
+            border: 1px solid #777;
+
+            color: #333;
+            cursor: pointer;
+        }
+
+        .pergunta {
+            width: 750px;
+            max-width: 90%;
+            margin: 50px auto;
+
+            text-align: center;
+        }
+
+        .pergunta h2 {
+            letter-spacing: 3px;
+        }
+
+        input {
+            width: 260px;
+            padding: 13px;
+
+            margin-top: 15px;
+
+            background: #181818;
+            color: white;
+
+            border: 1px solid #555;
+
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .confirmar {
+            display: block;
+
+            margin: 15px auto;
+
+            padding: 12px 25px;
+
+            background: #181818;
+            color: white;
+
+            border: 1px solid #555;
+
+            cursor: pointer;
+        }
+
+        .confirmar:hover {
+            background: #242424;
+        }
+
+        #resultado {
+            min-height: 30px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        #continuar {
+            display: none;
+
+            margin: 20px auto;
+
+            padding: 12px 25px;
+
+            background: #181818;
+            color: white;
+
+            border: 1px solid #555;
+
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topo">
+
+        <h1>CASO Nº 171015</h1>
+
+        <p>
+            Três pessoas estavam no local naquela noite.
+        </p>
+
+        <p>
+            Uma delas é a vítima.
+            Leia todas as evidências.
+        </p>
+
+    </div>
+
+
+    <div class="nomes">
+
+        <div class="nome" onclick="abrirFolha('carlos')">
+            CARLOS
+        </div>
+
+        <div class="nome" onclick="abrirFolha('marina')">
+            MARINA
+        </div>
+
+        <div class="nome" onclick="abrirFolha('henrique')">
+            HENRIQUE
+        </div>
+
+    </div>
+
+
+    <!-- CARLOS -->
+
+    <div id="carlos" class="folha">
+
+        <h2>RELATÓRIO — CARLOS</h2>
+
+        <div class="linha"></div>
+
+        <h3>Depoimento</h3>
+
+        <p>
+            Carlos afirma que chegou ao local às 22:10 para
+            encontrar um amigo. Segundo ele, ficou esperando
+            próximo à entrada durante aproximadamente vinte
+            minutos.
+        </p>
+
+        <p>
+            Depois disso, afirmou que foi embora porque ninguém
+            apareceu. Carlos também declarou que não entrou no
+            prédio em nenhum momento e que passou o restante
+            da noite em casa.
+        </p>
+
+        <div class="provas">
+
+            <h3>PROVAS ENCONTRADAS</h3>
+
+            <ul>
+                <li>Câmera externa registra Carlos chegando às 22:08.</li>
+                <li>A câmera mostra Carlos entrando no prédio às 22:14.</li>
+                <li>Não existe registro dele saindo pela entrada principal.</li>
+                <li>Uma testemunha viu alguém com uma jaqueta igual à de Carlos no corredor.</li>
+            </ul>
+
+        </div>
+
+        <button class="fechar" onclick="fecharFolhas()">
+            FECHAR ARQUIVO
+        </button>
+
+    </div>
+
+
+    <!-- MARINA -->
+
+    <div id="marina" class="folha">
+
+        <h2>RELATÓRIO — MARINA</h2>
+
+        <div class="linha"></div>
+
+        <h3>Depoimento</h3>
+
+        <p>
+            Marina afirma que estava no local porque havia
+            combinado de encontrar Carlos.
+        </p>
+
+        <p>
+            Ela declarou que chegou aproximadamente às 22:30
+            e permaneceu na área externa. Segundo Marina,
+            recebeu uma ligação às 22:47 e saiu imediatamente.
+        </p>
+
+        <p>
+            Ela afirma que não entrou no prédio e que depois
+            foi diretamente para casa.
+        </p>
+
+        <div class="provas">
+
+            <h3>PROVAS ENCONTRADAS</h3>
+
+            <ul>
+                <li>Câmera externa registra Marina chegando às 22:31.</li>
+                <li>A câmera registra Marina saindo às 22:49.</li>
+                <li>O registro da ligação confirma uma chamada às 22:47.</li>
+                <li>Nenhuma câmera mostra Marina entrando no prédio.</li>
+            </ul>
+
+        </div>
+
+        <button class="fechar" onclick="fecharFolhas()">
+            FECHAR ARQUIVO
+        </button>
+
+    </div>
+
+
+    <!-- HENRIQUE -->
+
+    <div id="henrique" class="folha">
+
+        <h2>RELATÓRIO — HENRIQUE</h2>
+
+        <div class="linha"></div>
+
+        <h3>Depoimento</h3>
+
+        <p>
+            Henrique afirma que não esteve no local naquela noite.
+            Segundo ele, passou a noite em casa assistindo televisão
+            e só soube do acontecimento no dia seguinte.
+        </p>
+
+        <p>
+            Henrique também declarou que não conhecia Carlos
+            nem Marina e que nunca havia visitado aquele prédio.
+        </p>
+
+        <div class="provas">
+
+            <h3>PROVAS ENCONTRADAS</h3>
+
+            <ul>
+                <li>Uma câmera registra Henrique entrando no prédio às 21:56.</li>
+                <li>Outra câmera registra a mesma pessoa saindo às 23:21.</li>
+                <li>Uma fotografia encontrada no local mostra Henrique dentro do prédio.</li>
+                <li>O registro de entrada indica um cartão cadastrado em seu nome.</li>
+            </ul>
+
+        </div>
+
+        <button class="fechar" onclick="fecharFolhas()">
+            FECHAR ARQUIVO
+        </button>
+
+    </div>
+
+
+    <!-- PERGUNTA -->
+
+    <div class="pergunta">
+
+        <h2>QUEM É A VÍTIMA?</h2>
+
+        <input
+            type="text"
+            id="resposta"
+            placeholder="Digite o nome"
+        >
+
+        <button class="confirmar" onclick="verificar()">
+            CONFIRMAR
+        </button>
+
+        <div id="resultado"></div>
+
+        <button id="continuar" onclick="irParaFase12()">
+            CONTINUAR
+        </button>
+
+    </div>
+
+
+    <script>
+
+        function abrirFolha(id) {
+
+            fecharFolhas();
+
+            document.getElementById(id).style.display = "block";
+
+            window.scrollTo({
+                top: document.getElementById(id).offsetTop - 30,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        function fecharFolhas() {
+
+            document.getElementById("carlos").style.display = "none";
+            document.getElementById("marina").style.display = "none";
+            document.getElementById("henrique").style.display = "none";
+
+        }
+
+
+        function verificar() {
+
+            const resposta =
+                document.getElementById("resposta")
+                .value
+                .trim()
+                .toLowerCase();
+
+            const resultado =
+                document.getElementById("resultado");
+
+            if (resposta === "henrique") {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>" +
+                    "As evidências contradizem o depoimento de Henrique.";
+
+                document.getElementById("continuar")
+                    .style.display = "block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.<br><br>" +
+                    "Compare novamente os depoimentos com as provas.";
+
+            }
+
+        }
+
+
+        function irParaFase12() {
+
+            window.location.href = "fase12.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
