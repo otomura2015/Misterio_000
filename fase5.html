@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 5 - O Mistério</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #050505;
+            color: white;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-top: 35px;
+            font-size: 32px;
+            letter-spacing: 4px;
+        }
+
+        .portas {
+            height: calc(100vh - 100px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .porta {
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .porta img {
+            width: 300px;
+            height: 430px;
+            object-fit: cover;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .porta:hover img {
+            transform: scale(1.05);
+            border-color: white;
+        }
+
+        .frase {
+            position: absolute;
+            bottom: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 330px;
+
+            background: rgba(0, 0, 0, 0.9);
+            padding: 12px;
+            border: 1px solid #555;
+
+            opacity: 0;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+
+        .porta:hover .frase {
+            opacity: 1;
+        }
+
+        .nome {
+            margin-top: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="titulo">
+        FASE 5
+    </div>
+
+    <div class="portas">
+
+        <!-- PORTA 1 -->
+        <div class="porta" onclick="escolherPorta(1)">
+            <img src="porta1.png" alt="Porta 1">
+
+            <div class="frase">
+                Você escolheu o caminho mais seguro...
+            </div>
+
+            <div class="nome">
+                PORTA 1
+            </div>
+        </div>
+
+
+        <!-- PORTA 2 -->
+        <div class="porta" onclick="escolherPorta(2)">
+            <img src="porta2.png" alt="Porta 2">
+
+            <div class="frase">
+                Os rastros parecem estar levando até ela...
+            </div>
+
+            <div class="nome">
+                PORTA 2
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function escolherPorta(numero) {
+
+            if (numero === 1) {
+                window.location.href = "fase6a.html";
+            }
+
+            if (numero === 2) {
+                window.location.href = "fase6b.html";
+            }
+
+        }
+    </script>
+
+</body>
+</html>
