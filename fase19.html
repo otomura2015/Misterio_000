@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fase 19 - Depoimentos</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at center, #1b1b1b, #070707);
+
+            color: white;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .topo {
+            text-align: center;
+
+            padding: 45px 20px 25px;
+        }
+
+        .topo h1 {
+            margin: 0;
+
+            font-size: 30px;
+
+            letter-spacing: 6px;
+        }
+
+        .topo p {
+            color: #777;
+        }
+
+        .papel {
+            width: 760px;
+            max-width: 90%;
+
+            margin: 35px auto;
+
+            padding: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1ead4,
+                    #e4dcc1
+                );
+
+            color: #29261f;
+
+            border: 1px solid #a49a80;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,0.55);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+        }
+
+        .cabecalho {
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+        }
+
+        .papel h2 {
+            text-align: center;
+
+            letter-spacing: 3px;
+        }
+
+        .linha {
+            height: 1px;
+
+            background: #aaa18a;
+
+            margin: 25px 0 35px;
+        }
+
+        .introducao {
+            line-height: 1.8;
+
+            font-size: 17px;
+        }
+
+        .depoimentos {
+            margin-top: 35px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+        }
+
+        .depoimento {
+            padding: 25px;
+
+            background: rgba(0,0,0,0.045);
+
+            border: 1px solid #aaa18a;
+        }
+
+        .depoimento h3 {
+            margin-top: 0;
+
+            text-align: center;
+
+            letter-spacing: 3px;
+        }
+
+        .depoimento p {
+            line-height: 1.8;
+
+            font-size: 16px;
+        }
+
+        .dica {
+            margin-top: 35px;
+
+            padding: 22px;
+
+            border: 1px dashed #888;
+
+            text-align: center;
+
+            font-style: italic;
+
+            line-height: 1.7;
+        }
+
+        .pergunta {
+            margin-top: 35px;
+
+            text-align: center;
+        }
+
+        input {
+            width: 320px;
+
+            max-width: 100%;
+
+            padding: 13px;
+
+            background: #eee8d5;
+
+            color: #222;
+
+            border: 1px solid #888;
+
+            font-family: Georgia, serif;
+
+            font-size: 17px;
+
+            text-align: center;
+        }
+
+        button {
+            margin-top: 15px;
+
+            padding: 11px 25px;
+
+            background: #ded5b9;
+
+            color: #29261f;
+
+            border: 1px solid #777;
+
+            cursor: pointer;
+
+            font-family: Georgia, serif;
+        }
+
+        button:hover {
+            background: #cec4a7;
+        }
+
+        #resultado {
+            min-height: 35px;
+
+            margin-top: 20px;
+
+            line-height: 1.6;
+
+            font-weight: bold;
+        }
+
+        #continuar {
+            display: none;
+
+            background: #181818;
+
+            color: white;
+
+            border-color: #555;
+        }
+
+        .rodape {
+            text-align: center;
+
+            color: #555;
+
+            font-size: 12px;
+
+            margin: 40px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="topo">
+
+        <h1>FASE 19</h1>
+
+        <p>ARQUIVO 019 — DEPOIMENTOS</p>
+
+    </div>
+
+
+    <div class="papel">
+
+        <div class="cabecalho">
+            NOVA ETAPA DA INVESTIGAÇÃO
+        </div>
+
+        <h2>OS TRÊS DEPOIMENTOS</h2>
+
+        <div class="linha"></div>
+
+
+        <div class="introducao">
+
+            <p>
+                Códigos podem esconder palavras.
+            </p>
+
+            <p>
+                Pessoas podem esconder a verdade.
+            </p>
+
+            <p>
+                A partir deste arquivo, você não deverá
+                apenas decifrar mensagens.
+            </p>
+
+            <p>
+                Você deverá aprender a analisar pessoas.
+            </p>
+
+        </div>
+
+
+        <div class="depoimentos">
+
+
+            <!-- CARLOS -->
+
+            <div class="depoimento">
+
+                <h3>CARLOS</h3>
+
+                <p>
+                    "Eu estava na cozinha às 21:30.
+                    Não saí de lá até 22:15.
+                    A luz da cozinha estava apagada
+                    durante todo esse tempo."
+                </p>
+
+            </div>
+
+
+            <!-- MARINA -->
+
+            <div class="depoimento">
+
+                <h3>MARINA</h3>
+
+                <p>
+                    "Eu cheguei às 21:45.
+                    Passei pela cozinha e vi Carlos
+                    lá dentro.
+                    A luz estava acesa."
+                </p>
+
+            </div>
+
+
+            <!-- HENRIQUE -->
+
+            <div class="depoimento">
+
+                <h3>HENRIQUE</h3>
+
+                <p>
+                    "Eu cheguei às 22:00.
+                    Fiquei do lado de fora.
+                    Não entrei na casa."
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="dica">
+
+            "Não procure apenas uma mentira."
+
+            <br><br>
+
+            "Procure aquilo que duas pessoas dizem
+            que aconteceu de maneiras diferentes."
+
+            <br><br>
+
+            "E pergunte:
+            <strong>como essa pessoa poderia saber?</strong>"
+
+        </div>
+
+
+        <div class="pergunta">
+
+            <p>
+                Qual depoimento apresenta a contradição
+                mais importante?
+            </p>
+
+            <input
+                type="text"
+                id="resposta"
+                placeholder="Digite o nome"
+            >
+
+            <br>
+
+            <button onclick="verificar()">
+                ANALISAR
+            </button>
+
+            <div id="resultado"></div>
+
+            <button
+                id="continuar"
+                onclick="irParaFase20()">
+
+                CONTINUAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="rodape">
+
+        ARQUIVO 019 — INVESTIGAÇÃO EM ANDAMENTO
+
+    </div>
+
+
+    <script>
+
+        function verificar() {
+
+            const resposta =
+                document
+                .getElementById("resposta")
+                .value
+                .trim()
+                .toLowerCase();
+
+            const resultado =
+                document
+                .getElementById("resultado");
+
+
+            /*
+                Carlos diz:
+
+                "A luz estava apagada."
+
+                Marina diz:
+
+                "A luz estava acesa."
+
+                Portanto existe uma contradição
+                direta entre os dois depoimentos.
+
+                A pergunta pede o depoimento que
+                apresenta a contradição mais importante.
+
+                Resposta: MARINA
+
+                Ela afirma ter visto Carlos dentro
+                da cozinha e também afirma que a luz
+                estava acesa.
+
+                A próxima etapa é descobrir se o
+                depoimento dela pode ser confirmado.
+            */
+
+
+            if (resposta === "marina") {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>" +
+                    "Existe uma contradição entre os depoimentos." +
+                    "<br><br>" +
+                    "Mas uma contradição ainda não prova quem mentiu.";
+
+                document
+                    .getElementById("continuar")
+                    .style.display = "inline-block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.<br><br>" +
+                    "Compare os horários e principalmente " +
+                    "o que cada pessoa afirma ter visto.";
+
+            }
+
+        }
+
+
+        function irParaFase20() {
+
+            window.location.href = "fase20.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
