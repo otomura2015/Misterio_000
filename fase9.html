@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fase 9</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #080808;
+            color: #ddd;
+            font-family: Georgia, serif;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 800px;
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+            letter-spacing: 5px;
+            color: white;
+        }
+
+        .subtitulo {
+            font-family: Arial, sans-serif;
+            color: #777;
+            margin-bottom: 50px;
+        }
+
+        .diario {
+            display: inline-block;
+            padding: 15px 30px;
+
+            background: #111;
+            border: 1px solid #555;
+
+            color: white;
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .diario:hover {
+            background: #222;
+            border-color: #888;
+        }
+
+        #arquivo {
+            display: none;
+            margin-top: 45px;
+            padding: 40px;
+
+            background: #101010;
+            border: 1px solid #333;
+
+            text-align: left;
+            line-height: 1.9;
+            font-size: 18px;
+        }
+
+        .data {
+            text-align: right;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .pergunta {
+            text-align: center;
+            margin-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        input {
+            display: block;
+            margin: 20px auto;
+
+            width: 250px;
+            padding: 12px;
+
+            background: #080808;
+            color: white;
+
+            border: 1px solid #555;
+
+            font-size: 17px;
+            text-align: center;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 25px;
+
+            background: #111;
+            color: white;
+
+            border: 1px solid #555;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #222;
+        }
+
+        #resultado {
+            text-align: center;
+            margin-top: 25px;
+            min-height: 30px;
+            font-family: Arial, sans-serif;
+        }
+
+        #continuar {
+            display: none;
+            margin: 20px auto;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>FASE 9</h1>
+
+        <div class="subtitulo">
+            Um arquivo foi encontrado.
+        </div>
+
+        <a class="diario" onclick="abrirDiario()">
+            ABRIR DIÁRIO
+        </a>
+
+
+        <div id="arquivo">
+
+            <div class="data">
+                17 de outubro
+            </div>
+
+            <p>
+                Hoje acordei mais cedo do que de costume.
+                A rua estava silenciosa e eu não consegui voltar a dormir.
+                Preparei café e fiquei alguns minutos olhando pela janela.
+            </p>
+
+            <p>
+                Quando saí de casa, percebi que havia alguma coisa diferente.
+                A porta estava aberta, embora eu tivesse certeza de que a havia trancado.
+                Pensei que talvez tivesse esquecido.
+            </p>
+
+            <p>
+                Caminhei até a praça e fiquei lá durante algum tempo.
+                Um homem estava sentado no mesmo banco de sempre.
+                Não falei com ele.
+            </p>
+
+            <p>
+                Quando voltei, o relógio da sala marcava 03:17.
+                Achei estranho, porque ainda era tarde.
+                Mesmo assim, continuei andando pela casa.
+            </p>
+
+            <p>
+                No corredor encontrei uma fotografia antiga.
+                Não me lembro de ter colocado aquela fotografia ali.
+                Atrás dela havia apenas uma parede.
+            </p>
+
+            <p>
+                Comecei a procurar pela casa inteira.
+                Não encontrei ninguém.
+                Antes de dormir, ouvi três batidas na porta.
+            </p>
+
+            <p>
+                Não abri.
+                Depois disso ficou tudo em silêncio.
+            </p>
+
+
+            <div class="pergunta">
+
+                <p>
+                    O que o detetive precisa descobrir?
+                </p>
+
+                <input
+                    type="text"
+                    id="resposta"
+                    placeholder="Digite a resposta"
+                >
+
+                <button onclick="verificar()">
+                    INVESTIGAR
+                </button>
+
+                <div id="resultado"></div>
+
+                <button
+                    id="continuar"
+                    onclick="irParaFase10()">
+                    CONTINUAR
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function abrirDiario() {
+
+            document.getElementById("arquivo").style.display = "block";
+
+        }
+
+
+        function verificar() {
+
+            const resposta =
+                document
+                .getElementById("resposta")
+                .value
+                .trim()
+                .toLowerCase();
+
+            const resultado =
+                document.getElementById("resultado");
+
+
+            /*
+                A resposta está escondida nas pistas
+                do diário.
+
+                PORTA
+                RELÓGIO
+                FOTOGRAFIA
+                TRÊS BATIDAS
+
+                A resposta planejada é:
+                "o que aconteceu"
+            */
+
+            if (
+                resposta === "o que aconteceu" ||
+                resposta === "o que aconteceu?"
+            ) {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>Agora você está pensando como um detetive.";
+
+                document.getElementById("continuar")
+                    .style.display = "block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "Não é isso.<br><br>Leia o diário novamente.";
+
+            }
+
+        }
+
+
+        function irParaFase10() {
+
+            window.location.href = "fase10.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
