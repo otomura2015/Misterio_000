@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fase 8</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #080808;
+            color: #eeeeee;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            padding-top: 35px;
+        }
+
+        h1 {
+            font-size: 28px;
+            letter-spacing: 5px;
+        }
+
+        .morse {
+            margin-top: 35px;
+            font-family: monospace;
+            font-size: 22px;
+            letter-spacing: 3px;
+        }
+
+        .numero {
+            margin-top: 25px;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        /*
+        PISTA ESCONDIDA
+
+        A cor é praticamente igual à do fundo.
+        Ela existe, mas é muito difícil de perceber.
+        */
+
+        .pista-escondida {
+            color: #080808;
+            margin-top: 15px;
+            font-size: 16px;
+            user-select: text;
+        }
+
+        .pista-escondida::selection {
+            color: white;
+            background: #555;
+        }
+
+        .instrucao {
+            margin-top: 20px;
+            font-size: 17px;
+        }
+
+        .tabela {
+            margin: 30px auto;
+            display: grid;
+
+            grid-template-columns: repeat(18, 42px);
+            grid-template-rows: repeat(7, 50px);
+
+            gap: 4px;
+
+            width: max-content;
+        }
+
+        .elemento {
+            border: 1px solid #555;
+            background: #111;
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+            transition: 0.15s;
+        }
+
+        .elemento:hover {
+            background: #292929;
+            transform: scale(1.08);
+        }
+
+        .numero-atomico {
+            font-size: 9px;
+            color: #aaa;
+        }
+
+        .simbolo {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .nome {
+            font-size: 7px;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            min-height: 30px;
+            font-size: 18px;
+        }
+
+        #continuar {
+            display: none;
+
+            margin: 20px auto;
+            padding: 12px 25px;
+
+            background: #111;
+            color: white;
+
+            border: 1px solid #555;
+            cursor: pointer;
+        }
+
+        #continuar:hover {
+            background: #222;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>FASE 8</h1>
+
+        <div class="morse">
+            - .- -... . .-.. .- /
+            .--. . .-. .. --- -.. .. -.-. .-
+        </div>
+
+        <div class="numero">
+            26
+        </div>
+
+        <!-- TEXTO ESCONDIDO -->
+        <div class="pista-escondida">
+            ELEMENTOS TABELA
+        </div>
+
+        <div class="instrucao">
+            ...
+        </div>
+
+        <div class="tabela" id="tabela"></div>
+
+        <div id="resultado"></div>
+
+        <button id="continuar" onclick="irParaFase9()">
+            CONTINUAR
+        </button>
+
+    </div>
+
+
+    <script>
+
+        /*
+            Elementos da tabela periódica.
+            O Ferro (Fe) é o elemento 26.
+        */
+
+        const elementos = [
+
+            ["H", "Hidrogênio", 1],
+            ["He", "Hélio", 2],
+
+            ["Li", "Lítio", 3],
+            ["Be", "Berílio", 4],
+            ["B", "Boro", 5],
+            ["C", "Carbono", 6],
+            ["N", "Nitrogênio", 7],
+            ["O", "Oxigênio", 8],
+            ["F", "Flúor", 9],
+            ["Ne", "Neônio", 10],
+
+            ["Na", "Sódio", 11],
+            ["Mg", "Magnésio", 12],
+            ["Al", "Alumínio", 13],
+            ["Si", "Silício", 14],
+            ["P", "Fósforo", 15],
+            ["S", "Enxofre", 16],
+            ["Cl", "Cloro", 17],
+            ["Ar", "Argônio", 18],
+
+            ["K", "Potássio", 19],
+            ["Ca", "Cálcio", 20],
+            ["Sc", "Escândio", 21],
+            ["Ti", "Titânio", 22],
+            ["V", "Vanádio", 23],
+            ["Cr", "Cromo", 24],
+            ["Mn", "Manganês", 25],
+            ["Fe", "Ferro", 26],
+            ["Co", "Cobalto", 27],
+            ["Ni", "Níquel", 28],
+            ["Cu", "Cobre", 29],
+            ["Zn", "Zinco", 30],
+
+            ["Ga", "Gálio", 31],
+            ["Ge", "Germânio", 32],
+            ["As", "Arsênio", 33],
+            ["Se", "Selênio", 34],
+            ["Br", "Bromo", 35],
+            ["Kr", "Criptônio", 36]
+
+        ];
+
+        const tabela = document.getElementById("tabela");
+
+
+        elementos.forEach(elemento => {
+
+            const div = document.createElement("div");
+
+            div.className = "elemento";
+
+            div.innerHTML = `
+                <div class="numero-atomico">
+                    ${elemento[2]}
+                </div>
+
+                <div class="simbolo">
+                    ${elemento[0]}
+                </div>
+
+                <div class="nome">
+                    ${elemento[1]}
+                </div>
+            `;
+
+            div.onclick = function() {
+                verificar(elemento[2], elemento[0]);
+            };
+
+            tabela.appendChild(div);
+
+        });
+
+
+        function verificar(numero, simbolo) {
+
+            const resultado =
+                document.getElementById("resultado");
+
+            if (numero === 26) {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>FERRO — Fe";
+
+                document.getElementById("continuar")
+                    .style.display = "block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.<br><br>Esse não é o elemento.";
+
+            }
+
+        }
+
+
+        function irParaFase9() {
+
+            window.location.href = "fase9.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
