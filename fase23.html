@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fase 23 - O Mapa</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at center, #1b1b1b, #070707);
+
+            color: white;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .topo {
+            text-align: center;
+            padding: 45px 20px 25px;
+        }
+
+        .topo h1 {
+            margin: 0;
+
+            font-size: 30px;
+
+            letter-spacing: 6px;
+        }
+
+        .topo p {
+            color: #777;
+        }
+
+        .papel {
+            width: 820px;
+            max-width: 92%;
+
+            margin: 35px auto;
+
+            padding: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1ead4,
+                    #e4dcc1
+                );
+
+            color: #29261f;
+
+            border: 1px solid #a49a80;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,0.55);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+        }
+
+        .cabecalho {
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+        }
+
+        .papel h2 {
+            text-align: center;
+
+            letter-spacing: 3px;
+        }
+
+        .linha {
+            height: 1px;
+
+            background: #aaa18a;
+
+            margin: 25px 0 35px;
+        }
+
+        .texto {
+            line-height: 1.8;
+
+            font-size: 17px;
+        }
+
+        .depoimento {
+            margin-top: 25px;
+
+            padding: 22px;
+
+            background: rgba(0,0,0,0.045);
+
+            border-left: 4px solid #777;
+
+            line-height: 1.8;
+        }
+
+        .depoimento strong {
+            letter-spacing: 2px;
+        }
+
+        .mapa {
+            position: relative;
+
+            width: 100%;
+            height: 430px;
+
+            margin-top: 30px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.04) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    rgba(0,0,0,0.04) 1px,
+                    transparent 1px
+                );
+
+            background-size: 40px 40px;
+
+            border: 2px solid #8d856f;
+
+            overflow: hidden;
+        }
+
+        .rua {
+            position: absolute;
+
+            background: #c7bea5;
+
+            height: 28px;
+
+            transform-origin: center;
+        }
+
+        .rua1 {
+            width: 90%;
+            left: 5%;
+            top: 55%;
+        }
+
+        .rua2 {
+            width: 28px;
+            height: 75%;
+            left: 28%;
+            top: 12%;
+        }
+
+        .rua3 {
+            width: 28px;
+            height: 70%;
+            left: 70%;
+            top: 15%;
+        }
+
+        .rua4 {
+            width: 65%;
+            left: 18%;
+            top: 25%;
+            transform: rotate(25deg);
+        }
+
+        .local {
+            position: absolute;
+
+            width: 115px;
+
+            padding: 12px 5px;
+
+            text-align: center;
+
+            background: #e9e1ca;
+
+            border: 2px solid #6f6958;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+
+            z-index: 5;
+        }
+
+        .local:hover {
+            transform: scale(1.05);
+
+            background: #d8cfb4;
+        }
+
+        .local.selecionado {
+            background: #bcb39a;
+
+            border-color: #29261f;
+        }
+
+        .casa {
+            left: 7%;
+            bottom: 12%;
+        }
+
+        .praca {
+            left: 43%;
+            top: 12%;
+        }
+
+        .mercado {
+            right: 6%;
+            top: 35%;
+        }
+
+        .onibus {
+            left: 7%;
+            top: 15%;
+        }
+
+        .beco {
+            right: 8%;
+            bottom: 10%;
+        }
+
+        .predio {
+            left: 42%;
+            bottom: 10%;
+        }
+
+        .instrucao {
+            margin-top: 25px;
+
+            padding: 18px;
+
+            border: 1px dashed #888;
+
+            text-align: center;
+
+            line-height: 1.7;
+        }
+
+        #ordem {
+            margin-top: 25px;
+
+            padding: 18px;
+
+            border-left: 4px solid #777;
+
+            min-height: 45px;
+        }
+
+        .botoes {
+            text-align: center;
+
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 11px 25px;
+
+            background: #ded5b9;
+
+            color: #29261f;
+
+            border: 1px solid #777;
+
+            cursor: pointer;
+
+            font-family: Georgia, serif;
+        }
+
+        button:hover {
+            background: #cec4a7;
+        }
+
+        #resultado {
+            min-height: 50px;
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            line-height: 1.7;
+
+            font-weight: bold;
+        }
+
+        #continuar {
+            display: none;
+
+            margin-top: 15px;
+
+            background: #181818;
+
+            color: white;
+
+            border-color: #555;
+        }
+
+        .rodape {
+            text-align: center;
+
+            color: #555;
+
+            font-size: 12px;
+
+            margin: 40px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="topo">
+
+        <h1>FASE 23</h1>
+
+        <p>ARQUIVO 023 — O MAPA</p>
+
+    </div>
+
+
+    <div class="papel">
+
+        <div class="cabecalho">
+            DOCUMENTO DE INVESTIGAÇÃO
+        </div>
+
+        <h2>O CAMINHO</h2>
+
+        <div class="linha"></div>
+
+
+        <div class="texto">
+
+            <p>
+                Um suspeito afirma que saiu da casa,
+                foi até o mercado e depois voltou.
+            </p>
+
+            <p>
+                O problema é que o mapa mostra que
+                existe um lugar entre os dois.
+            </p>
+
+        </div>
+
+
+        <div class="depoimento">
+
+            <strong>DEPOIMENTO — HENRIQUE</strong>
+
+            <br><br>
+
+            "Saí da casa às 20:10.
+            Fui diretamente para o mercado.
+            Depois passei pela praça e voltei para casa."
+
+        </div>
+
+
+        <div class="instrucao">
+
+            <strong>MISSÃO</strong>
+
+            <br><br>
+
+            Clique nos locais na ordem em que
+            Henrique deveria ter passado por eles.
+
+            <br>
+
+            Comece pela <strong>CASA</strong>.
+
+        </div>
+
+
+        <div class="mapa">
+
+
+            <!-- RUAS -->
+
+            <div class="rua rua1"></div>
+
+            <div class="rua rua2"></div>
+
+            <div class="rua rua3"></div>
+
+            <div class="rua rua4"></div>
+
+
+            <!-- LOCAIS -->
+
+
+            <div
+                class="local casa"
+                data-id="casa"
+                onclick="selecionar(this)"
+            >
+                CASA
+            </div>
+
+
+            <div
+                class="local praca"
+                data-id="praca"
+                onclick="selecionar(this)"
+            >
+                PRAÇA
+            </div>
+
+
+            <div
+                class="local mercado"
+                data-id="mercado"
+                onclick="selecionar(this)"
+            >
+                MERCADO
+            </div>
+
+
+            <div
+                class="local onibus"
+                data-id="onibus"
+                onclick="selecionar(this)"
+            >
+                PONTO DE<br>ÔNIBUS
+            </div>
+
+
+            <div
+                class="local beco"
+                data-id="beco"
+                onclick="selecionar(this)"
+            >
+                BECO
+            </div>
+
+
+            <div
+                class="local predio"
+                data-id="predio"
+                onclick="selecionar(this)"
+            >
+                PRÉDIO<br>ABANDONADO
+            </div>
+
+
+        </div>
+
+
+        <div id="ordem">
+
+            <strong>CAMINHO ESCOLHIDO:</strong>
+
+            <br><br>
+
+            <span id="ordemTexto">
+                Nenhum local selecionado.
+            </span>
+
+        </div>
+
+
+        <div class="botoes">
+
+            <button onclick="verificar()">
+                ANALISAR CAMINHO
+            </button>
+
+            <br>
+
+            <button
+                style="margin-top:10px;"
+                onclick="limpar()">
+
+                LIMPAR
+
+            </button>
+
+        </div>
+
+
+        <div id="resultado"></div>
+
+
+        <div style="text-align:center;">
+
+            <button
+                id="continuar"
+                onclick="irParaFase24()">
+
+                CONTINUAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="rodape">
+
+        ARQUIVO 023 — INVESTIGAÇÃO EM ANDAMENTO
+
+    </div>
+
+
+    <script>
+
+        let caminho = [];
+
+
+        function selecionar(elemento) {
+
+            const id = elemento.dataset.id;
+
+
+            if (caminho.includes(id)) {
+
+                return;
+
+            }
+
+
+            caminho.push(id);
+
+            elemento.classList.add("selecionado");
+
+
+            atualizar();
+
+        }
+
+
+        function atualizar() {
+
+            const texto =
+                document.getElementById("ordemTexto");
+
+
+            if (caminho.length === 0) {
+
+                texto.innerHTML =
+                    "Nenhum local selecionado.";
+
+                return;
+
+            }
+
+
+            const nomes = {
+
+                casa: "CASA",
+
+                praca: "PRAÇA",
+
+                mercado: "MERCADO",
+
+                onibus: "PONTO DE ÔNIBUS",
+
+                beco: "BECO",
+
+                predio: "PRÉDIO ABANDONADO"
+
+            };
+
+
+            texto.innerHTML =
+                caminho
+                .map((local, i) =>
+                    (i + 1) + "º — " + nomes[local]
+                )
+                .join("<br>");
+
+        }
+
+
+        function limpar() {
+
+            caminho = [];
+
+
+            document
+                .querySelectorAll(".local")
+                .forEach(elemento => {
+
+                    elemento.classList.remove(
+                        "selecionado"
+                    );
+
+                });
+
+
+            atualizar();
+
+
+            document
+                .getElementById("resultado")
+                .innerHTML = "";
+
+        }
+
+
+        function verificar() {
+
+            const resultado =
+                document.getElementById("resultado");
+
+
+            const correto =
+                ["casa", "praca", "mercado"];
+
+
+            if (caminho.length !== 3) {
+
+                resultado.innerHTML =
+                    "Você precisa escolher os três locais " +
+                    "do percurso.";
+
+                return;
+
+            }
+
+
+            const acertou =
+                caminho.every(
+                    (valor, indice) =>
+                        valor === correto[indice]
+                );
+
+
+            if (acertou) {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>" +
+
+                    "O percurso é:<br>" +
+
+                    "CASA → PRAÇA → MERCADO." +
+
+                    "<br><br>" +
+
+                    "Henrique disse que foi diretamente " +
+                    "da casa para o mercado, mas o mapa " +
+                    "mostra que a praça fica no caminho." +
+
+                    "<br><br>" +
+
+                    "<strong>REGRA 023:</strong><br>" +
+
+                    "Um mapa pode revelar um caminho " +
+                    "que um depoimento tentou esconder.";
+
+                document
+                    .getElementById("continuar")
+                    .style.display = "inline-block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "O caminho não está correto.<br><br>" +
+
+                    "Observe a posição dos locais " +
+                    "e o depoimento novamente.";
+
+            }
+
+        }
+
+
+        function irParaFase24() {
+
+            window.location.href = "fase24.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
