@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fase 18</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at center, #1b1b1b, #070707);
+
+            color: white;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .topo {
+            text-align: center;
+            padding: 45px 20px 25px;
+        }
+
+        .topo h1 {
+            margin: 0;
+
+            font-size: 30px;
+
+            letter-spacing: 6px;
+        }
+
+        .topo p {
+            color: #777;
+        }
+
+        .papel {
+            width: 720px;
+            max-width: 90%;
+
+            margin: 35px auto;
+
+            padding: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1ead4,
+                    #e4dcc1
+                );
+
+            color: #29261f;
+
+            border: 1px solid #a49a80;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,0.55);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+        }
+
+        .cabecalho {
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+        }
+
+        .papel h2 {
+            text-align: center;
+
+            letter-spacing: 3px;
+        }
+
+        .linha {
+            height: 1px;
+
+            background: #aaa18a;
+
+            margin: 25px 0 35px;
+        }
+
+        .texto {
+            line-height: 1.8;
+
+            font-size: 17px;
+        }
+
+        .diario {
+            margin-top: 30px;
+
+            padding: 30px;
+
+            background: rgba(0,0,0,0.04);
+
+            border-left: 3px solid #777;
+
+            line-height: 2;
+
+            font-size: 17px;
+        }
+
+        .frase {
+            margin: 12px 0;
+        }
+
+        .ultima {
+            font-weight: bold;
+        }
+
+        .dica {
+            margin-top: 30px;
+
+            padding: 20px;
+
+            border: 1px dashed #888;
+
+            text-align: center;
+
+            font-style: italic;
+        }
+
+        .pergunta {
+            margin-top: 35px;
+
+            text-align: center;
+        }
+
+        input {
+            width: 300px;
+            max-width: 100%;
+
+            padding: 13px;
+
+            background: #eee8d5;
+
+            color: #222;
+
+            border: 1px solid #888;
+
+            font-family: Georgia, serif;
+
+            font-size: 17px;
+
+            text-align: center;
+        }
+
+        button {
+            margin-top: 15px;
+
+            padding: 11px 25px;
+
+            background: #ded5b9;
+
+            color: #29261f;
+
+            border: 1px solid #777;
+
+            cursor: pointer;
+
+            font-family: Georgia, serif;
+        }
+
+        button:hover {
+            background: #cec4a7;
+        }
+
+        #resultado {
+            min-height: 35px;
+
+            margin-top: 20px;
+
+            line-height: 1.6;
+
+            font-weight: bold;
+        }
+
+        #continuar {
+            display: none;
+
+            background: #181818;
+
+            color: white;
+
+            border-color: #555;
+        }
+
+        .rodape {
+            text-align: center;
+
+            color: #555;
+
+            font-size: 12px;
+
+            margin: 40px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="topo">
+
+        <h1>FASE 18</h1>
+
+        <p>ARQUIVO 018</p>
+
+    </div>
+
+
+    <div class="papel">
+
+        <div class="cabecalho">
+            DOCUMENTO DE INVESTIGAÇÃO
+        </div>
+
+        <h2>A SOMBRA</h2>
+
+        <div class="linha"></div>
+
+
+        <div class="texto">
+
+            <p>
+                Você encontrou a sombra da porta.
+            </p>
+
+            <p>
+                Mas existe algo escondido nela.
+            </p>
+
+            <p>
+                A folha parece ser apenas um pequeno
+                relato dos acontecimentos.
+            </p>
+
+            <p>
+                Porém, alguém deixou uma mensagem escondida.
+            </p>
+
+        </div>
+
+
+        <div class="diario">
+
+            <div class="frase">
+                A porta permanecia aberta no
+                <span class="ultima">Pátio.</span>
+            </div>
+
+            <div class="frase">
+                Ninguém sabia quem havia passado por
+                <span class="ultima">Ontem.</span>
+            </div>
+
+            <div class="frase">
+                A casa continuava completamente
+                <span class="ultima">Rasgada.</span>
+            </div>
+
+            <div class="frase">
+                O investigador encontrou marcas perto da
+                <span class="ultima">Tranca.</span>
+            </div>
+
+            <div class="frase">
+                Depois disso, ninguém voltou para
+                <span class="ultima">Ali.</span>
+            </div>
+
+        </div>
+
+
+        <div class="dica">
+
+            "Não olhe para as frases.
+            Observe as extremidades."
+
+            <br><br>
+
+            "Às vezes, o começo de uma coisa
+            está escondido no final de outra."
+
+        </div>
+
+
+        <div class="pergunta">
+
+            <p>
+                Qual é a mensagem escondida?
+            </p>
+
+            <input
+                type="text"
+                id="resposta"
+                placeholder="Digite a mensagem"
+            >
+
+            <br>
+
+            <button onclick="verificar()">
+                INVESTIGAR
+            </button>
+
+            <div id="resultado"></div>
+
+            <button
+                id="continuar"
+                onclick="irParaFase19()">
+
+                CONTINUAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="rodape">
+
+        ARQUIVO 018 — INVESTIGAÇÃO EM ANDAMENTO
+
+    </div>
+
+
+    <script>
+
+        function verificar() {
+
+            const resposta =
+                document
+                .getElementById("resposta")
+                .value
+                .trim()
+                .toLowerCase();
+
+            const resultado =
+                document
+                .getElementById("resultado");
+
+
+            /*
+                Primeira letra das últimas palavras:
+
+                Pátio    -> P
+                Ontem    -> O
+                Rasgada  -> R
+                Tranca   -> T
+                Ali      -> A
+
+                Resultado:
+
+                PORTA
+            */
+
+
+            if (
+                resposta === "porta" ||
+                resposta === "porta."
+            ) {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>" +
+                    "A mensagem escondida é PORTA.";
+
+                document
+                    .getElementById("continuar")
+                    .style.display = "inline-block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.<br><br>" +
+                    "Observe as extremidades das frases.";
+
+            }
+
+        }
+
+
+        function irParaFase19() {
+
+            window.location.href = "fase19.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
