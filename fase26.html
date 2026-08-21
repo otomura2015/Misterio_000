@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Fase 26 - Código</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:radial-gradient(circle,#1b1b1b,#070707);
+    font-family:Arial,sans-serif;
+    color:white;
+}
+
+.topo{
+    text-align:center;
+    padding:40px 20px 20px;
+}
+
+.topo h1{
+    letter-spacing:6px;
+}
+
+.topo p{color:#777}
+
+.papel{
+    width:800px;
+    max-width:92%;
+    margin:30px auto;
+    padding:50px;
+    background:linear-gradient(135deg,#f1ead4,#e4dcc1);
+    color:#29261f;
+    border:1px solid #a49a80;
+    box-shadow:0 12px 35px #0009;
+    font-family:Georgia,serif;
+}
+
+.cabecalho{
+    text-align:center;
+    color:#666;
+    letter-spacing:3px;
+    font-size:13px;
+}
+
+h2{text-align:center;letter-spacing:3px}
+
+.linha{
+    height:1px;
+    background:#aaa18a;
+    margin:25px 0 35px;
+}
+
+.codigo{
+    margin:30px 0;
+    padding:25px;
+    text-align:center;
+    background:#d8cfb5;
+    border:1px solid #999;
+    font-family:monospace;
+    font-size:25px;
+    letter-spacing:5px;
+}
+
+.tabela{
+    line-height:2;
+    text-align:center;
+    padding:20px;
+    border:1px dashed #888;
+}
+
+.pergunta{
+    text-align:center;
+    margin-top:30px;
+}
+
+input{
+    padding:12px;
+    width:250px;
+    max-width:90%;
+    background:#eee8d5;
+    border:1px solid #777;
+    text-align:center;
+    font-size:17px;
+}
+
+button{
+    padding:11px 25px;
+    margin-top:15px;
+    background:#ded5b9;
+    border:1px solid #777;
+    cursor:pointer;
+    font-family:Georgia,serif;
+}
+
+#resultado{
+    margin-top:20px;
+    min-height:50px;
+    line-height:1.7;
+    font-weight:bold;
+}
+
+#continuar{
+    display:none;
+    background:#181818;
+    color:white;
+}
+
+.rodape{
+    text-align:center;
+    color:#555;
+    margin:40px;
+    font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topo">
+    <h1>FASE 26</h1>
+    <p>ARQUIVO 026 — CÓDIGO</p>
+</div>
+
+<div class="papel">
+
+<div class="cabecalho">DOCUMENTO DE INVESTIGAÇÃO</div>
+
+<h2>A MENSAGEM CODIFICADA</h2>
+
+<div class="linha"></div>
+
+<p>
+Você encontrou uma mensagem aparentemente sem sentido.
+</p>
+
+<p>
+Use a tabela abaixo para descobrir o que ela significa.
+</p>
+
+<div class="codigo">
+    16 - 15 - 18 - 20 - 1
+</div>
+
+<div class="tabela">
+
+<strong>TABELA DE SUBSTITUIÇÃO</strong>
+
+<br><br>
+
+1=A &nbsp; 2=B &nbsp; 3=C &nbsp; 4=D &nbsp; 5=E
+
+<br>
+
+6=F &nbsp; 7=G &nbsp; 8=H &nbsp; 9=I &nbsp; 10=J
+
+<br>
+
+11=K &nbsp; 12=L &nbsp; 13=M &nbsp; 14=N &nbsp; 15=O
+
+<br>
+
+16=P &nbsp; 17=Q &nbsp; 18=R &nbsp; 19=S &nbsp; 20=T
+
+</div>
+
+<div class="pergunta">
+
+<p>Qual é a palavra escondida?</p>
+
+<input id="resposta" placeholder="Digite a resposta">
+
+<br>
+
+<button onclick="verificar()">DECIFRAR</button>
+
+<div id="resultado"></div>
+
+<button id="continuar" onclick="location.href='fase27.html'">
+CONTINUAR
+</button>
+
+</div>
+
+</div>
+
+<div class="rodape">
+ARQUIVO 026 — INVESTIGAÇÃO EM ANDAMENTO
+</div>
+
+<script>
+
+function verificar(){
+
+let resposta=document
+.getElementById("resposta")
+.value.trim()
+.toUpperCase();
+
+let resultado=document
+.getElementById("resultado");
+
+if(resposta==="PORTA"){
+
+resultado.innerHTML=
+"CORRETO.<br><br>"+
+"A sequência 16-15-18-20-1 significa PORTA."+
+"<br><br>"+
+"<strong>REGRA 026:</strong><br>"+
+"Um código só é útil quando você conhece a regra usada para criá-lo.";
+
+document.getElementById("continuar").style.display="inline-block";
+
+}else{
+
+resultado.innerHTML=
+"INCORRETO.<br><br>"+
+"Use a tabela e transforme cada número em uma letra.";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
