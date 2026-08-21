@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fase 14</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at center, #1b1b1b, #070707);
+
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .topo {
+            text-align: center;
+            padding: 45px 20px 20px;
+        }
+
+        .topo h1 {
+            margin: 0;
+            font-size: 30px;
+            letter-spacing: 6px;
+        }
+
+        .topo p {
+            color: #777;
+        }
+
+        .papel {
+            width: 720px;
+            max-width: 90%;
+
+            margin: 35px auto;
+            padding: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1ead4,
+                    #e4dcc1
+                );
+
+            color: #29261f;
+
+            border: 1px solid #a49a80;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,0.55);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+        }
+
+        .cabecalho {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            letter-spacing: 3px;
+        }
+
+        .papel h2 {
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        .linha {
+            height: 1px;
+            background: #aaa18a;
+            margin: 25px 0 35px;
+        }
+
+        .texto {
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .lugares {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .lugar {
+            padding: 16px;
+
+            background: rgba(0,0,0,0.04);
+
+            border: 1px solid #aaa18a;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            font-family: Georgia, serif;
+            font-size: 17px;
+        }
+
+        .lugar:hover {
+            background: rgba(0,0,0,0.09);
+        }
+
+        #resultadoLugar {
+            text-align: center;
+            margin-top: 25px;
+            min-height: 30px;
+            font-weight: bold;
+        }
+
+        #segundaParte {
+            display: none;
+        }
+
+        .codigo {
+            margin: 30px 0;
+
+            padding: 25px;
+
+            background: rgba(0,0,0,0.05);
+
+            border-left: 4px solid #777;
+
+            font-family: monospace;
+
+            font-size: 23px;
+
+            text-align: center;
+
+            letter-spacing: 3px;
+        }
+
+        .pergunta {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        input {
+            width: 280px;
+            max-width: 100%;
+
+            padding: 13px;
+
+            background: #eee8d5;
+            color: #222;
+
+            border: 1px solid #888;
+
+            font-family: Georgia, serif;
+
+            font-size: 17px;
+
+            text-align: center;
+        }
+
+        button {
+            margin-top: 15px;
+
+            padding: 11px 25px;
+
+            background: #ded5b9;
+
+            color: #29261f;
+
+            border: 1px solid #777;
+
+            cursor: pointer;
+
+            font-family: Georgia, serif;
+        }
+
+        button:hover {
+            background: #cec4a7;
+        }
+
+        #resultado {
+            min-height: 30px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        #continuar {
+            display: none;
+
+            background: #181818;
+            color: white;
+            border-color: #555;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="topo">
+
+        <h1>FASE 14</h1>
+
+        <p>ARQUIVO 014</p>
+
+    </div>
+
+
+    <!-- PRIMEIRA FOLHA -->
+
+    <div class="papel">
+
+        <div class="cabecalho">
+            DOCUMENTO DE INVESTIGAÇÃO
+        </div>
+
+        <h2>A PORTA</h2>
+
+        <div class="linha"></div>
+
+        <div class="texto">
+
+            <p>
+                Você seguiu a última instrução.
+            </p>
+
+            <p>
+                Agora está diante de quatro possibilidades.
+            </p>
+
+            <p>
+                Apenas uma delas possui alguma coisa escondida.
+            </p>
+
+            <p>
+                Procure aquilo que ninguém percebeu.
+            </p>
+
+        </div>
+
+
+        <div class="lugares">
+
+            <div class="lugar" onclick="escolher('parede')">
+                PAREDE
+            </div>
+
+            <div class="lugar" onclick="escolher('chao')">
+                CHÃO
+            </div>
+
+            <div class="lugar" onclick="escolher('teto')">
+                TETO
+            </div>
+
+            <div class="lugar" onclick="escolher('porta')">
+                PORTA
+            </div>
+
+        </div>
+
+
+        <div id="resultadoLugar"></div>
+
+    </div>
+
+
+    <!-- SEGUNDA FOLHA -->
+
+    <div id="segundaParte" class="papel">
+
+        <div class="cabecalho">
+            DOCUMENTO ENCONTRADO
+        </div>
+
+        <h2>ATRÁS DA PORTA</h2>
+
+        <div class="linha"></div>
+
+        <div class="texto">
+
+            <p>
+                Você encontrou uma segunda folha.
+            </p>
+
+            <p>
+                Não existe nenhuma explicação.
+            </p>
+
+            <p>
+                Apenas uma mensagem.
+            </p>
+
+        </div>
+
+
+        <div class="codigo">
+
+            SRUWD 6E
+
+        </div>
+
+
+        <div class="texto">
+
+            <p>
+                O código parece familiar.
+            </p>
+
+            <p>
+                Você já aprendeu a decifrar esse tipo
+                de mensagem.
+            </p>
+
+        </div>
+
+
+        <div class="pergunta">
+
+            <p>
+                O que está escrito?
+            </p>
+
+            <input
+                type="text"
+                id="resposta"
+                placeholder="Digite a resposta"
+            >
+
+            <br>
+
+            <button onclick="verificar()">
+                DECIFRAR
+            </button>
+
+            <div id="resultado"></div>
+
+            <button
+                id="continuar"
+                onclick="irParaFase15()">
+
+                CONTINUAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function escolher(local) {
+
+            const resultado =
+                document.getElementById("resultadoLugar");
+
+            if (local === "porta") {
+
+                resultado.innerHTML =
+                    "Você encontrou alguma coisa atrás da porta.";
+
+                document.getElementById("segundaParte")
+                    .style.display = "block";
+
+                setTimeout(() => {
+
+                    window.scrollTo({
+                        top:
+                            document.getElementById("segundaParte")
+                            .offsetTop - 20,
+                        behavior: "smooth"
+                    });
+
+                }, 300);
+
+            } else {
+
+                const mensagens = {
+
+                    parede:
+                        "Você encontrou apenas uma parede antiga.",
+
+                    chao:
+                        "Apenas poeira. Nada parece estar escondido aqui.",
+
+                    teto:
+                        "Nada além de algumas marcas antigas."
+
+                };
+
+                resultado.innerHTML =
+                    mensagens[local];
+
+            }
+
+        }
+
+
+        function verificar() {
+
+            const resposta =
+                document.getElementById("resposta")
+                .value
+                .trim()
+                .toLowerCase();
+
+            const resultado =
+                document.getElementById("resultado");
+
+
+            /*
+                Código César:
+
+                SRUWD 6E
+
+                Voltando 3 letras:
+
+                S -> P
+                R -> O
+                U -> R
+                W -> T
+                D -> A
+
+                Resultado:
+                PORTA 6B
+            */
+
+
+            if (
+                resposta === "porta 6b" ||
+                resposta === "porta 6b."
+            ) {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>" +
+                    "PORTA 6B.<br><br>" +
+                    "Você já passou por essa porta.";
+
+                document.getElementById("continuar")
+                    .style.display = "inline-block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.<br><br>" +
+                    "Você já aprendeu essa cifra.";
+
+            }
+
+        }
+
+
+        function irParaFase15() {
+
+            window.location.href = "fase15.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
