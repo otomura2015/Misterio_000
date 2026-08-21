@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fase 30 - O Caso Completo</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at center, #1b1b1b, #070707);
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+}
+
+.topo {
+    text-align: center;
+    padding: 40px 20px 25px;
+}
+
+.topo h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 6px;
+}
+
+.topo p {
+    color: #777;
+}
+
+.papel {
+    width: 850px;
+    max-width: 92%;
+
+    margin: 30px auto;
+
+    padding: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1ead4,
+            #e4dcc1
+        );
+
+    color: #29261f;
+
+    border: 1px solid #a49a80;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.55);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+.cabecalho {
+    text-align: center;
+
+    color: #666;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
+}
+
+h2 {
+    text-align: center;
+
+    letter-spacing: 3px;
+}
+
+.linha {
+    height: 1px;
+
+    background: #aaa18a;
+
+    margin: 25px 0 35px;
+}
+
+.introducao {
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+.secao {
+    margin-top: 30px;
+
+    padding: 22px;
+
+    background: rgba(0,0,0,0.045);
+
+    border-left: 4px solid #777;
+
+    line-height: 1.9;
+}
+
+.secao h3 {
+    margin-top: 0;
+
+    letter-spacing: 2px;
+}
+
+.codigo {
+    padding: 15px;
+
+    text-align: center;
+
+    background: #d8cfb5;
+
+    border: 1px solid #999;
+
+    font-family: monospace;
+
+    font-size: 20px;
+
+    letter-spacing: 4px;
+}
+
+.depoimento {
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border: 1px solid #aaa18a;
+
+    background: rgba(0,0,0,0.035);
+}
+
+.pergunta {
+    margin-top: 35px;
+
+    text-align: center;
+}
+
+.opcoes {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 20px;
+}
+
+.opcao {
+    padding: 16px 30px;
+
+    background: #ded5b9;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+
+    font-family: Georgia, serif;
+
+    transition: 0.2s;
+}
+
+.opcao:hover {
+    background: #cec4a7;
+
+    transform: translateY(-2px);
+}
+
+.opcao.selecionada {
+    background: #aaa18a;
+
+    border: 2px solid #444;
+}
+
+button {
+    padding: 12px 28px;
+
+    margin-top: 20px;
+
+    background: #ded5b9;
+
+    color: #29261f;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+
+    font-family: Georgia, serif;
+}
+
+button:hover {
+    background: #cec4a7;
+}
+
+#resultado {
+    min-height: 70px;
+
+    margin-top: 20px;
+
+    line-height: 1.7;
+
+    font-weight: bold;
+}
+
+#capitulo2 {
+    display: none;
+
+    background: #181818;
+
+    color: white;
+
+    border-color: #555;
+}
+
+.regra {
+    margin-top: 35px;
+
+    padding: 22px;
+
+    border: 1px dashed #888;
+
+    text-align: center;
+
+    line-height: 1.7;
+
+    font-style: italic;
+}
+
+.rodape {
+    text-align: center;
+
+    color: #555;
+
+    font-size: 12px;
+
+    margin: 40px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="topo">
+
+    <h1>FASE 30</h1>
+
+    <p>ARQUIVO 030 — O CASO COMPLETO</p>
+
+</div>
+
+
+<div class="papel">
+
+
+<div class="cabecalho">
+DOCUMENTO FINAL — CAPÍTULO 1
+</div>
+
+
+<h2>O CASO COMPLETO</h2>
+
+
+<div class="linha"></div>
+
+
+<div class="introducao">
+
+<p>
+Você chegou ao último arquivo do primeiro capítulo.
+</p>
+
+<p>
+Durante as fases anteriores, você aprendeu a
+analisar códigos, horários, mapas, álibis,
+depoimentos e evidências.
+</p>
+
+<p>
+Agora todas essas habilidades serão necessárias
+ao mesmo tempo.
+</p>
+
+<p>
+<strong>
+Descubra quem deve ser investigado primeiro.
+</strong>
+</p>
+
+</div>
+
+
+<div class="secao">
+
+<h3>LINHA DO TEMPO</h3>
+
+20:00 — Carlos chega à casa.
+
+<br>
+
+20:10 — Marina entra na sala.
+
+<br>
+
+20:17 — A luz da sala apaga.
+
+<br>
+
+20:21 — Marina deixa a sala.
+
+<br>
+
+20:25 — O objeto desaparece.
+
+</div>
+
+
+<div class="secao">
+
+<h3>DEPOIMENTOS</h3>
+
+
+<div class="depoimento">
+
+<strong>CARLOS</strong>
+
+<br><br>
+
+"Eu fiquei na cozinha durante todo esse período."
+
+</div>
+
+
+<div class="depoimento">
+
+<strong>MARINA</strong>
+
+<br><br>
+
+"Eu entrei na sala às 20:10 e saí às 20:21."
+
+</div>
+
+
+<div class="depoimento">
+
+<strong>HENRIQUE</strong>
+
+<br><br>
+
+"Eu estava do lado de fora."
+
+</div>
+
+</div>
+
+
+<div class="secao">
+
+<h3>MENSAGEM CODIFICADA</h3>
+
+<p>
+Uma mensagem foi encontrada perto da sala.
+</p>
+
+<div class="codigo">
+
+16 - 15 - 18 - 20 - 1
+
+</div>
+
+<p>
+Use o método aprendido na Fase 26.
+</p>
+
+<p>
+A mensagem significa:
+<strong>PORTA</strong>
+</p>
+
+</div>
+
+
+<div class="secao">
+
+<h3>EVIDÊNCIA FINAL</h3>
+
+A única entrada da sala é pela porta.
+
+<br><br>
+
+O objeto desapareceu entre
+<strong>20:21 e 20:25</strong>.
+
+</div>
+
+
+<div class="pergunta">
+
+<p>
+<strong>
+Quem deve ser investigado primeiro?
+</strong>
+</p>
+
+<div class="opcoes">
+
+
+<div
+class="opcao"
+data-id="carlos"
+onclick="selecionar(this)"
+>
+CARLOS
+</div>
+
+
+<div
+class="opcao"
+data-id="marina"
+onclick="selecionar(this)"
+>
+MARINA
+</div>
+
+
+<div
+class="opcao"
+data-id="henrique"
+onclick="selecionar(this)"
+>
+HENRIQUE
+</div>
+
+
+</div>
+
+
+<button onclick="verificar()">
+
+ANALISAR CASO
+
+</button>
+
+
+<div id="resultado"></div>
+
+
+<button
+id="capitulo2"
+onclick="irParaCapitulo2()">
+
+IR PARA O CAPÍTULO 2
+
+</button>
+
+</div>
+
+
+<div class="regra">
+
+<strong>REGRA 030</strong>
+
+<br><br>
+
+"Estar no local não prova que alguém é culpado."
+
+<br><br>
+
+"Primeiro encontre as evidências.
+Depois tire suas conclusões."
+
+</div>
+
+
+</div>
+
+
+<div class="rodape">
+
+ARQUIVO 030 — FIM DO CAPÍTULO 1
+
+</div>
+
+
+<script>
+
+
+let selecionada = null;
+
+
+function selecionar(elemento) {
+
+    document
+    .querySelectorAll(".opcao")
+    .forEach(opcao => {
+
+        opcao.classList.remove(
+            "selecionada"
+        );
+
+    });
+
+
+    elemento.classList.add(
+        "selecionada"
+    );
+
+
+    selecionada =
+        elemento.dataset.id;
+
+}
+
+
+function verificar() {
+
+    const resultado =
+        document.getElementById(
+            "resultado"
+        );
+
+
+    if (!selecionada) {
+
+        resultado.innerHTML =
+            "Escolha um suspeito primeiro.";
+
+        return;
+
+    }
+
+
+    if (selecionada === "marina") {
+
+        resultado.innerHTML =
+            "CORRETO.<br><br>" +
+
+            "Marina esteve dentro da sala " +
+            "até 20:21.<br><br>" +
+
+            "O objeto desapareceu logo depois, " +
+            "entre 20:21 e 20:25.<br><br>" +
+
+            "Isso não prova que Marina é culpada. " +
+            "Significa apenas que ela é a pessoa " +
+            "que deve ser investigada primeiro." +
+
+            "<br><br>" +
+
+            "<strong>CAPÍTULO 1 CONCLUÍDO.</strong>";
+
+        document
+        .getElementById("capitulo2")
+        .style.display = "inline-block";
+
+    }
+
+    else {
+
+        resultado.innerHTML =
+            "INCORRETO.<br><br>" +
+
+            "Volte à linha do tempo e observe " +
+            "quem estava na sala pouco antes " +
+            "do desaparecimento.";
+
+    }
+
+}
+
+
+function irParaCapitulo2() {
+
+    window.location.href =
+        "capitulo2.html";
+
+}
+
+</script>
+
+
+</body>
+</html>
