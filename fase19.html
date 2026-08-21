@@ -26,15 +26,12 @@
 
         .topo {
             text-align: center;
-
             padding: 45px 20px 25px;
         }
 
         .topo h1 {
             margin: 0;
-
             font-size: 30px;
-
             letter-spacing: 6px;
         }
 
@@ -47,7 +44,6 @@
             max-width: 90%;
 
             margin: 35px auto;
-
             padding: 50px;
 
             background:
@@ -72,31 +68,24 @@
 
         .cabecalho {
             text-align: center;
-
             color: #666;
-
             font-size: 13px;
-
             letter-spacing: 3px;
         }
 
         .papel h2 {
             text-align: center;
-
             letter-spacing: 3px;
         }
 
         .linha {
             height: 1px;
-
             background: #aaa18a;
-
             margin: 25px 0 35px;
         }
 
         .introducao {
             line-height: 1.8;
-
             font-size: 17px;
         }
 
@@ -104,7 +93,6 @@
             margin-top: 35px;
 
             display: flex;
-
             flex-direction: column;
 
             gap: 20px;
@@ -128,7 +116,6 @@
 
         .depoimento p {
             line-height: 1.8;
-
             font-size: 16px;
         }
 
@@ -148,13 +135,11 @@
 
         .pergunta {
             margin-top: 35px;
-
             text-align: center;
         }
 
         input {
-            width: 320px;
-
+            width: 380px;
             max-width: 100%;
 
             padding: 13px;
@@ -193,7 +178,7 @@
         }
 
         #resultado {
-            min-height: 35px;
+            min-height: 40px;
 
             margin-top: 20px;
 
@@ -252,20 +237,24 @@
         <div class="introducao">
 
             <p>
-                Códigos podem esconder palavras.
+                Até agora, você procurou códigos e mensagens
+                escondidas.
             </p>
 
             <p>
-                Pessoas podem esconder a verdade.
+                A partir deste arquivo, a investigação muda.
             </p>
 
             <p>
-                A partir deste arquivo, você não deverá
-                apenas decifrar mensagens.
+                Agora você precisa analisar o que as pessoas
+                dizem.
             </p>
 
             <p>
-                Você deverá aprender a analisar pessoas.
+                Uma contradição pode ser importante.
+                Mas cuidado:
+                uma contradição não significa automaticamente
+                que você descobriu o mentiroso.
             </p>
 
         </div>
@@ -273,8 +262,6 @@
 
         <div class="depoimentos">
 
-
-            <!-- CARLOS -->
 
             <div class="depoimento">
 
@@ -290,8 +277,6 @@
             </div>
 
 
-            <!-- MARINA -->
-
             <div class="depoimento">
 
                 <h3>MARINA</h3>
@@ -305,8 +290,6 @@
 
             </div>
 
-
-            <!-- HENRIQUE -->
 
             <div class="depoimento">
 
@@ -325,17 +308,20 @@
 
         <div class="dica">
 
-            "Não procure apenas uma mentira."
+            "Carlos diz que a luz estava apagada."
+
+            <br>
+
+            "Marina diz que a luz estava acesa."
 
             <br><br>
 
-            "Procure aquilo que duas pessoas dizem
-            que aconteceu de maneiras diferentes."
+            "Existe uma contradição."
 
             <br><br>
 
-            "E pergunte:
-            <strong>como essa pessoa poderia saber?</strong>"
+            "Mas existe alguma prova dizendo
+            quem está mentindo?"
 
         </div>
 
@@ -343,14 +329,14 @@
         <div class="pergunta">
 
             <p>
-                Qual depoimento apresenta a contradição
-                mais importante?
+                Com essas informações, é possível determinar
+                quem está mentindo?
             </p>
 
             <input
                 type="text"
                 id="resposta"
-                placeholder="Digite o nome"
+                placeholder="Digite sua conclusão"
             >
 
             <br>
@@ -400,36 +386,59 @@
             /*
                 Carlos diz:
 
-                "A luz estava apagada."
+                A luz estava APAGADA.
 
                 Marina diz:
 
-                "A luz estava acesa."
+                A luz estava ACESA.
 
-                Portanto existe uma contradição
-                direta entre os dois depoimentos.
+                Existe uma contradição.
 
-                A pergunta pede o depoimento que
-                apresenta a contradição mais importante.
+                Porém, não existe nenhuma evidência
+                independente que prove qual dos dois
+                está dizendo a verdade.
 
-                Resposta: MARINA
+                Portanto:
 
-                Ela afirma ter visto Carlos dentro
-                da cozinha e também afirma que a luz
-                estava acesa.
-
-                A próxima etapa é descobrir se o
-                depoimento dela pode ser confirmado.
+                NÃO É POSSÍVEL DETERMINAR.
             */
 
 
-            if (resposta === "marina") {
+            const respostasCorretas = [
+
+                "não é possível determinar",
+                "nao e possivel determinar",
+                "não é possível saber",
+                "nao e possivel saber",
+                "não dá para saber",
+                "nao da para saber",
+                "nao sei",
+                "não sei",
+                "impossível determinar",
+                "impossivel determinar",
+                "não é possível",
+                "nao e possivel"
+
+            ];
+
+
+            if (respostasCorretas.includes(resposta)) {
 
                 resultado.innerHTML =
                     "CORRETO.<br><br>" +
-                    "Existe uma contradição entre os depoimentos." +
+
+                    "Existe uma contradição entre Carlos " +
+                    "e Marina.<br><br>" +
+
+                    "Mas ainda não existe prova suficiente " +
+                    "para determinar quem está mentindo." +
+
                     "<br><br>" +
-                    "Mas uma contradição ainda não prova quem mentiu.";
+
+                    "REGRA DE INVESTIGAÇÃO:<br>" +
+
+                    "Uma contradição é uma pista, " +
+                    "não uma prova.";
 
                 document
                     .getElementById("continuar")
@@ -438,9 +447,10 @@
             } else {
 
                 resultado.innerHTML =
-                    "ERRADO.<br><br>" +
-                    "Compare os horários e principalmente " +
-                    "o que cada pessoa afirma ter visto.";
+                    "AINDA NÃO.<br><br>" +
+
+                    "Você encontrou a contradição, " +
+                    "mas consegue provar quem está mentindo?";
 
             }
 
