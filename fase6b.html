@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 6B</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #050505;
+            color: white;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .caixa {
+            width: 600px;
+            max-width: 90%;
+            text-align: center;
+            padding: 40px;
+            border: 1px solid #444;
+            background: #0b0b0b;
+        }
+
+        h1 {
+            letter-spacing: 5px;
+            margin-bottom: 35px;
+        }
+
+        p {
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+        input {
+            margin-top: 20px;
+            padding: 12px;
+            width: 180px;
+            background: #111;
+            color: white;
+            border: 1px solid #555;
+            text-align: center;
+            font-size: 20px;
+            outline: none;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 12px 25px;
+            background: #111;
+            color: white;
+            border: 1px solid #555;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #222;
+        }
+
+        #resultado {
+            margin-top: 25px;
+            min-height: 30px;
+        }
+
+        #proximo {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="caixa">
+
+        <h1>FASE 6B</h1>
+
+        <p>
+            QUE HORAS SÃO?
+        </p>
+
+        <p>
+            Digite o horário que está acontecendo agora.
+        </p>
+
+        <input
+            type="text"
+            id="hora"
+            placeholder="00:00"
+            maxlength="5"
+        >
+
+        <button onclick="verificarHora()">
+            CONFIRMAR
+        </button>
+
+        <div id="resultado"></div>
+
+        <button id="proximo" onclick="irParaFase7()">
+            CONTINUAR
+        </button>
+
+    </div>
+
+    <script>
+
+        function verificarHora() {
+
+            const resposta = document.getElementById("hora").value.trim();
+
+            const agora = new Date();
+
+            const horas = String(agora.getHours()).padStart(2, "0");
+            const minutos = String(agora.getMinutes()).padStart(2, "0");
+
+            const horarioCorreto = horas + ":" + minutos;
+
+            if (resposta === horarioCorreto) {
+
+                document.getElementById("resultado").innerHTML =
+                    "CORRETO.<br><br>Você percebeu o que estava acontecendo.";
+
+                document.getElementById("proximo").style.display = "block";
+
+            } else {
+
+                document.getElementById("resultado").innerHTML =
+                    "ERRADO.<br><br>O tempo continua correndo...";
+
+            }
+        }
+
+        function irParaFase7() {
+            window.location.href = "fase7.html";
+        }
+
+    </script>
+
+</body>
+</html>
