@@ -2,298 +2,478 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Fase 29 - O Último Detalhe</title>
 
 <style>
-*{box-sizing:border-box}
 
-body{
-    margin:0;
-    min-height:100vh;
-    background:radial-gradient(circle,#1b1b1b,#070707);
-    color:white;
-    font-family:Arial,sans-serif;
+* {
+    box-sizing: border-box;
 }
 
-.topo{
-    text-align:center;
-    padding:40px 20px 20px;
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at center, #1b1b1b, #070707);
+
+    color: white;
+
+    font-family: Arial, sans-serif;
 }
 
-.topo h1{letter-spacing:6px}
-.topo p{color:#777}
-
-.papel{
-    width:820px;
-    max-width:92%;
-    margin:30px auto;
-    padding:50px;
-    background:linear-gradient(135deg,#f1ead4,#e4dcc1);
-    color:#29261f;
-    border:1px solid #a49a80;
-    box-shadow:0 12px 35px #0009;
-    font-family:Georgia,serif;
+.topo {
+    text-align: center;
+    padding: 40px 20px 20px;
 }
 
-.cabecalho{
-    text-align:center;
-    color:#666;
-    letter-spacing:3px;
-    font-size:13px;
+.topo h1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 6px;
 }
 
-h2{text-align:center;letter-spacing:3px}
-
-.linha{
-    height:1px;
-    background:#aaa18a;
-    margin:25px 0 35px;
+.topo p {
+    color: #777;
 }
 
-.intro{
-    line-height:1.8;
-    font-size:17px;
+.papel {
+    width: 820px;
+    max-width: 92%;
+
+    margin: 30px auto;
+    padding: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1ead4,
+            #e4dcc1
+        );
+
+    color: #29261f;
+
+    border: 1px solid #a49a80;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.55);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 }
 
-.pistas{
-    margin-top:30px;
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:15px;
+.cabecalho {
+    text-align: center;
+    color: #666;
+    letter-spacing: 3px;
+    font-size: 13px;
 }
 
-.pista{
-    padding:20px;
-
-    background:rgba(0,0,0,.04);
-
-    border:1px solid #aaa18a;
-
-    cursor:pointer;
-
-    transition:.2s;
+h2 {
+    text-align: center;
+    letter-spacing: 3px;
 }
 
-.pista:hover{
-    background:rgba(0,0,0,.09);
+.linha {
+    height: 1px;
+    background: #aaa18a;
+    margin: 25px 0 35px;
 }
 
-.pista.selecionada{
-    background:#c8bea4;
-    border:2px solid #555;
+.intro {
+    line-height: 1.8;
+    font-size: 17px;
 }
 
-.pergunta{
-    margin-top:35px;
-    text-align:center;
+.pistas {
+    margin-top: 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
 }
 
-button{
-    padding:11px 25px;
-    margin-top:15px;
-    background:#ded5b9;
-    border:1px solid #777;
-    cursor:pointer;
-    font-family:Georgia,serif;
+.pista {
+    padding: 20px;
+
+    background: rgba(0,0,0,.04);
+
+    border: 1px solid #aaa18a;
+
+    cursor: pointer;
+
+    transition: .2s;
 }
 
-#resultado{
-    min-height:70px;
-    margin-top:20px;
-    line-height:1.7;
-    font-weight:bold;
+.pista:hover {
+    background: rgba(0,0,0,.09);
 }
 
-#final{
-    display:none;
-
-    margin-top:30px;
-
-    padding:25px;
-
-    border:1px dashed #777;
-
-    text-align:center;
-
-    line-height:1.8;
+.pista.selecionada {
+    background: #c8bea4;
+    border: 2px solid #555;
 }
 
-.rodape{
-    text-align:center;
-    color:#555;
-    margin:40px;
-    font-size:12px;
+.pergunta {
+    margin-top: 35px;
+    text-align: center;
 }
 
-@media(max-width:650px){
+button {
+    padding: 11px 25px;
 
-.pistas{
-    grid-template-columns:1fr;
+    margin-top: 15px;
+
+    background: #ded5b9;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+
+    font-family: Georgia, serif;
 }
 
+button:hover {
+    background: #cec4a7;
 }
+
+#resultado {
+    min-height: 70px;
+
+    margin-top: 20px;
+
+    line-height: 1.7;
+
+    font-weight: bold;
+}
+
+#continuar {
+    display: none;
+
+    background: #181818;
+
+    color: white;
+
+    border-color: #555;
+}
+
+.regra {
+    margin-top: 35px;
+
+    padding: 22px;
+
+    border: 1px dashed #888;
+
+    text-align: center;
+
+    line-height: 1.8;
+
+    font-style: italic;
+}
+
+.rodape {
+    text-align: center;
+
+    color: #555;
+
+    margin: 40px;
+
+    font-size: 12px;
+}
+
+@media (max-width: 650px) {
+
+    .pistas {
+        grid-template-columns: 1fr;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
+
 <div class="topo">
-<h1>FASE 29</h1>
-<p>ARQUIVO 029 — O ÚLTIMO DETALHE</p>
+
+    <h1>FASE 29</h1>
+
+    <p>ARQUIVO 029 — O ÚLTIMO DETALHE</p>
+
 </div>
+
 
 <div class="papel">
 
-<div class="cabecalho">
-DOCUMENTO DE INVESTIGAÇÃO
+
+    <div class="cabecalho">
+        DOCUMENTO DE INVESTIGAÇÃO
+    </div>
+
+
+    <h2>O ÚLTIMO DETALHE</h2>
+
+
+    <div class="linha"></div>
+
+
+    <div class="intro">
+
+        <p>
+            Você chegou ao fim desta investigação.
+        </p>
+
+        <p>
+            Durante o caso, várias pistas foram
+            encontradas.
+        </p>
+
+        <p>
+            Algumas pareciam importantes, mas apenas
+            uma possui uma relação direta com o
+            acontecimento.
+        </p>
+
+        <p>
+            <strong>
+                Escolha a pista que merece ser
+                investigada primeiro.
+            </strong>
+        </p>
+
+    </div>
+
+
+    <div class="pistas">
+
+
+        <div
+            class="pista"
+            data-id="relogio"
+            onclick="selecionar(this)"
+        >
+
+            <strong>RELÓGIO</strong>
+
+            <br><br>
+
+            Marcava 20:40.
+
+        </div>
+
+
+        <div
+            class="pista"
+            data-id="chave"
+            onclick="selecionar(this)"
+        >
+
+            <strong>CHAVE</strong>
+
+            <br><br>
+
+            Foi encontrada perto da porta.
+
+        </div>
+
+
+        <div
+            class="pista"
+            data-id="copo"
+            onclick="selecionar(this)"
+        >
+
+            <strong>COPO</strong>
+
+            <br><br>
+
+            Estava sobre uma mesa.
+
+        </div>
+
+
+        <div
+            class="pista"
+            data-id="papel"
+            onclick="selecionar(this)"
+        >
+
+            <strong>PAPEL</strong>
+
+            <br><br>
+
+            Não apresentava nenhuma informação.
+
+        </div>
+
+
+    </div>
+
+
+    <div class="pergunta">
+
+        <p>
+            Qual pista deve ser investigada primeiro?
+        </p>
+
+
+        <button onclick="verificar()">
+            ANALISAR PISTA
+        </button>
+
+
+        <div id="resultado"></div>
+
+
+        <!-- BOTÃO PARA A FASE 30 -->
+
+        <button
+            id="continuar"
+            onclick="irParaFase30()"
+        >
+
+            IR PARA A FASE 30
+
+        </button>
+
+
+    </div>
+
+
+    <div class="regra">
+
+        <strong>REGRA 029</strong>
+
+        <br><br>
+
+        "Nem toda pista é igualmente importante."
+
+        <br><br>
+
+        "O trabalho do investigador é descobrir
+        qual delas merece atenção."
+
+    </div>
+
+
 </div>
 
-<h2>O ÚLTIMO DETALHE</h2>
-
-<div class="linha"></div>
-
-<div class="intro">
-
-<p>
-Você chegou ao fim desta investigação.
-</p>
-
-<p>
-Durante o caso, várias pistas foram encontradas.
-Algumas pareciam importantes, mas apenas uma
-pode conectar os acontecimentos.
-</p>
-
-<p>
-Escolha a pista que merece ser investigada primeiro.
-</p>
-
-</div>
-
-<div class="pistas">
-
-<div class="pista" data-id="relogio" onclick="selecionar(this)">
-<strong>RELÓGIO</strong>
-<br><br>
-Marcava 20:40.
-</div>
-
-<div class="pista" data-id="chave" onclick="selecionar(this)">
-<strong>CHAVE</strong>
-<br><br>
-Foi encontrada perto da porta.
-</div>
-
-<div class="pista" data-id="copo" onclick="selecionar(this)">
-<strong>COPO</strong>
-<br><br>
-Estava sobre uma mesa.
-</div>
-
-<div class="pista" data-id="papel" onclick="selecionar(this)">
-<strong>PAPEL</strong>
-<br><br>
-Não apresentava nenhuma informação.
-</div>
-
-</div>
-
-<div class="pergunta">
-
-<button onclick="verificar()">
-ANALISAR PISTA
-</button>
-
-<div id="resultado"></div>
-
-</div>
-
-<div id="final">
-
-<strong>INVESTIGAÇÃO CONCLUÍDA</strong>
-
-<br><br>
-
-Você escolheu a pista mais relevante.
-
-<br><br>
-
-A chave pode ajudar a descobrir
-quem teve acesso à porta.
-
-<br><br>
-
-<strong>REGRA 029:</strong>
-
-<br><br>
-
-"Nem toda pista é igualmente importante.
-O trabalho do investigador é descobrir
-qual delas merece atenção."
-
-</div>
-
-</div>
 
 <div class="rodape">
-ARQUIVO 029 — FIM DO CASO
+
+    ARQUIVO 029 — INVESTIGAÇÃO EM ANDAMENTO
+
 </div>
+
 
 <script>
 
-let selecionada=null;
+let selecionada = null;
 
-function selecionar(elemento){
 
-document.querySelectorAll(".pista")
-.forEach(p=>p.classList.remove("selecionada"));
+/* Escolher uma pista */
 
-elemento.classList.add("selecionada");
+function selecionar(elemento) {
 
-selecionada=elemento.dataset.id;
+    document
+        .querySelectorAll(".pista")
+        .forEach(pista => {
+
+            pista.classList.remove(
+                "selecionada"
+            );
+
+        });
+
+
+    elemento.classList.add(
+        "selecionada"
+    );
+
+
+    selecionada =
+        elemento.dataset.id;
+
+}
+
+
+/* Verificar resposta */
+
+function verificar() {
+
+    const resultado =
+        document.getElementById(
+            "resultado"
+        );
+
+
+    if (!selecionada) {
+
+        resultado.innerHTML =
+            "Escolha uma pista primeiro.";
+
+        return;
+
+    }
+
+
+    if (selecionada === "chave") {
+
+        resultado.innerHTML =
+            "CORRETO.<br><br>" +
+
+            "A chave merece atenção porque " +
+            "pode estabelecer uma relação direta " +
+            "com o acesso à porta." +
+
+            "<br><br>" +
+
+            "Isso não significa que a chave " +
+            "seja uma prova de culpa." +
+
+            "<br><br>" +
+
+            "Ela é simplesmente a pista que " +
+            "merece ser investigada primeiro.";
+
+
+        document
+            .getElementById("continuar")
+            .style.display = "inline-block";
+
+
+    } else {
+
+        resultado.innerHTML =
+            "INCORRETO.<br><br>" +
+
+            "Essa pista pode ser interessante, " +
+            "mas existe outra que possui uma " +
+            "relação mais direta com o acontecimento.";
+
+    }
 
 }
 
-function verificar(){
 
-let resultado=document.getElementById("resultado");
+/* Ir para a Fase 30 */
 
-if(!selecionada){
+function irParaFase30() {
 
-resultado.innerHTML=
-"Escolha uma pista primeiro.";
-
-return;
-
-}
-
-if(selecionada==="chave"){
-
-resultado.innerHTML=
-"CORRETO.<br><br>"+
-"A chave merece atenção porque pode estabelecer "+
-"uma relação direta com o acesso à porta."+
-"<br><br>"+
-"Você não concluiu que ela prova alguma coisa. "+
-"Você apenas identificou uma pista importante.";
-
-document.getElementById("final").style.display="block";
-
-}else{
-
-resultado.innerHTML=
-"Essa pista pode ser interessante, "+
-"mas existe outra que possui uma relação "+
-"mais direta com o acontecimento.";
-
-}
+    window.location.href = "fase30.html";
 
 }
 
 </script>
+
 
 </body>
 </html>
