@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Fase 28 - Depoimentos</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:radial-gradient(circle,#1b1b1b,#070707);
+    color:white;
+    font-family:Arial,sans-serif;
+}
+
+.topo{
+    text-align:center;
+    padding:40px 20px 20px;
+}
+
+.topo h1{letter-spacing:6px}
+.topo p{color:#777}
+
+.papel{
+    width:820px;
+    max-width:92%;
+    margin:30px auto;
+    padding:50px;
+    background:linear-gradient(135deg,#f1ead4,#e4dcc1);
+    color:#29261f;
+    border:1px solid #a49a80;
+    box-shadow:0 12px 35px #0009;
+    font-family:Georgia,serif;
+}
+
+.cabecalho{
+    text-align:center;
+    color:#666;
+    letter-spacing:3px;
+    font-size:13px;
+}
+
+h2{text-align:center;letter-spacing:3px}
+
+.linha{
+    height:1px;
+    background:#aaa18a;
+    margin:25px 0 35px;
+}
+
+.evidencia{
+    padding:20px;
+    border:1px dashed #888;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.depoimentos{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.pessoa{
+    padding:20px;
+    border:1px solid #aaa18a;
+    background:rgba(0,0,0,.04);
+    cursor:pointer;
+    transition:.2s;
+}
+
+.pessoa:hover{
+    background:rgba(0,0,0,.09);
+}
+
+.pessoa.selecionada{
+    background:#c8bea4;
+    border:2px solid #555;
+}
+
+button{
+    padding:11px 25px;
+    margin-top:20px;
+    background:#ded5b9;
+    border:1px solid #777;
+    cursor:pointer;
+    font-family:Georgia,serif;
+}
+
+#resultado{
+    margin-top:20px;
+    min-height:60px;
+    line-height:1.7;
+    font-weight:bold;
+}
+
+#continuar{
+    display:none;
+    background:#181818;
+    color:white;
+}
+
+.rodape{
+    text-align:center;
+    color:#555;
+    margin:40px;
+    font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topo">
+<h1>FASE 28</h1>
+<p>ARQUIVO 028 — FALSO TESTEMUNHO</p>
+</div>
+
+<div class="papel">
+
+<div class="cabecalho">DOCUMENTO DE INVESTIGAÇÃO</div>
+
+<h2>QUEM ESTÁ MENTINDO?</h2>
+
+<div class="linha"></div>
+
+<div class="evidencia">
+
+<strong>EVIDÊNCIA REGISTRADA</strong>
+
+<br><br>
+
+Às <strong>20:40</strong>, a porta da cozinha
+foi registrada como aberta.
+
+<br><br>
+
+O relógio da cozinha estava parado
+exatamente às <strong>20:40</strong>.
+
+</div>
+
+<div class="depoimentos">
+
+<div class="pessoa" data-id="carlos" onclick="selecionar(this)">
+<strong>CARLOS</strong>
+<br><br>
+"Eu estava na sala às 20:40."
+</div>
+
+<div class="pessoa" data-id="marina" onclick="selecionar(this)">
+<strong>MARINA</strong>
+<br><br>
+"Eu estava na cozinha às 20:40,
+e a porta estava fechada."
+</div>
+
+<div class="pessoa" data-id="henrique" onclick="selecionar(this)">
+<strong>HENRIQUE</strong>
+<br><br>
+"Eu estava no quintal às 20:40."
+</div>
+
+</div>
+
+<div style="text-align:center;margin-top:30px">
+
+<p>
+Quem apresentou um depoimento que contradiz
+diretamente a evidência?
+</p>
+
+<button onclick="verificar()">
+ANALISAR
+</button>
+
+<div id="resultado"></div>
+
+<button id="continuar" onclick="location.href='fase29.html'">
+CONTINUAR
+</button>
+
+</div>
+
+</div>
+
+<div class="rodape">
+ARQUIVO 028 — INVESTIGAÇÃO EM ANDAMENTO
+</div>
+
+<script>
+
+let selecionada=null;
+
+function selecionar(elemento){
+
+document.querySelectorAll(".pessoa")
+.forEach(p=>p.classList.remove("selecionada"));
+
+elemento.classList.add("selecionada");
+
+selecionada=elemento.dataset.id;
+
+}
+
+function verificar(){
+
+let resultado=document.getElementById("resultado");
+
+if(!selecionada){
+
+resultado.innerHTML=
+"Selecione um depoimento primeiro.";
+
+return;
+
+}
+
+if(selecionada==="marina"){
+
+resultado.innerHTML=
+"CORRETO.<br><br>"+
+"Marina afirmou que a porta estava fechada às 20:40."+
+"<br><br>"+
+"Porém, a evidência registra que a porta estava aberta."+
+"<br><br>"+
+"<strong>REGRA 028:</strong><br>"+
+"Uma contradição entre um depoimento e uma evidência merece investigação.";
+
+document.getElementById("continuar").style.display="inline-block";
+
+}else{
+
+resultado.innerHTML=
+"INCORRETO.<br><br>"+
+"Compare cada depoimento diretamente com a evidência.";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
