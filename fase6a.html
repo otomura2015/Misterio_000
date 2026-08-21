@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fase 6A</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #050505;
+            color: white;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sala {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 38px;
+            letter-spacing: 5px;
+            margin-bottom: 30px;
+        }
+
+        .mensagem {
+            width: 600px;
+            max-width: 85%;
+            text-align: center;
+            border: 1px solid #444;
+            padding: 30px;
+            background: #0b0b0b;
+        }
+
+        .mensagem p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        .aviso {
+            margin-top: 30px;
+            color: #999;
+            font-size: 15px;
+        }
+
+        button {
+            margin-top: 35px;
+            padding: 12px 25px;
+            background: #111;
+            color: white;
+            border: 1px solid #555;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #222;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sala">
+
+        <h1>FASE 6A</h1>
+
+        <div class="mensagem">
+
+            <p>
+                VOCÊ ESCOLHEU A PORTA ERRADA.
+            </p>
+
+            <p>
+                Ela parecia normal demais.
+            </p>
+
+            <div class="aviso">
+                Talvez você devesse ter escolhido a que parecia diferente...
+            </div>
+
+            <button onclick="voltar()">
+                VOLTAR
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+        function voltar() {
+            window.location.href = "fase5.html";
+        }
+    </script>
+
+</body>
+</html>
