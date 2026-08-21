@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fase 12 - Manual do Detetive</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at center, #1b1b1b, #070707);
+
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .topo {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .topo h1 {
+            margin: 0;
+
+            font-size: 30px;
+            letter-spacing: 5px;
+        }
+
+        .topo p {
+            color: #888;
+        }
+
+        .arquivos {
+            width: 900px;
+            max-width: 90%;
+
+            margin: 35px auto;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .botao {
+            width: 170px;
+            padding: 18px;
+
+            background: #151515;
+            border: 1px solid #444;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .botao:hover {
+            background: #222;
+            transform: translateY(-3px);
+        }
+
+        .botao strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .botao span {
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* PAPEL */
+
+        .papel {
+            display: none;
+
+            width: 700px;
+            max-width: 90%;
+
+            margin: 35px auto;
+            padding: 45px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1ead4,
+                    #e4dcc1
+                );
+
+            color: #29261f;
+
+            border: 1px solid #a49a80;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.5);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            text-align: left;
+        }
+
+        .papel h2 {
+            text-align: center;
+
+            margin-top: 0;
+
+            letter-spacing: 3px;
+        }
+
+        .linha {
+            height: 1px;
+            background: #aaa18a;
+
+            margin: 20px 0 30px;
+        }
+
+        .codigo {
+            padding: 20px;
+
+            background: rgba(0,0,0,0.05);
+
+            border-left: 3px solid #777;
+
+            font-family: monospace;
+
+            font-size: 22px;
+
+            text-align: center;
+
+            letter-spacing: 3px;
+        }
+
+        .instrucao {
+            margin-top: 25px;
+
+            line-height: 1.7;
+        }
+
+        .resposta {
+            margin-top: 25px;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 12px;
+
+            background: #eee8d5;
+
+            color: #222;
+
+            border: 1px solid #888;
+
+            font-family: Georgia, serif;
+
+            font-size: 17px;
+        }
+
+        .confirmar {
+            margin-top: 12px;
+
+            padding: 10px 22px;
+
+            background: #ded5b9;
+
+            border: 1px solid #777;
+
+            cursor: pointer;
+        }
+
+        .confirmar:hover {
+            background: #cec4a7;
+        }
+
+        .resultado {
+            margin-top: 15px;
+
+            min-height: 25px;
+
+            font-weight: bold;
+        }
+
+        .fechar {
+            display: block;
+
+            margin: 30px auto 0;
+
+            padding: 10px 25px;
+
+            background: transparent;
+
+            color: #333;
+
+            border: 1px solid #777;
+
+            cursor: pointer;
+        }
+
+        #mensagemFinal {
+            display: none;
+
+            width: 700px;
+            max-width: 90%;
+
+            margin: 40px auto;
+
+            padding: 30px;
+
+            text-align: center;
+
+            border: 1px solid #444;
+
+            background: #101010;
+        }
+
+        #fase13 {
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 12px 25px;
+
+            background: #151515;
+
+            color: white;
+
+            border: 1px solid #555;
+
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="topo">
+
+        <h1>MANUAL DO DETETIVE</h1>
+
+        <p>
+            Cinco documentos foram encontrados.
+        </p>
+
+        <p>
+            Nem tudo deve ser lido da maneira comum.
+        </p>
+
+    </div>
+
+
+    <div class="arquivos">
+
+        <div class="botao" onclick="abrirPapel('morse')">
+            <strong>DOCUMENTO 01</strong>
+            <span>CÓDIGO</span>
+        </div>
+
+        <div class="botao" onclick="abrirPapel('cesar')">
+            <strong>DOCUMENTO 02</strong>
+            <span>CIFRA</span>
+        </div>
+
+        <div class="botao" onclick="abrirPapel('binario')">
+            <strong>DOCUMENTO 03</strong>
+            <span>NÚMEROS</span>
+        </div>
+
+        <div class="botao" onclick="abrirPapel('a1z26')">
+            <strong>DOCUMENTO 04</strong>
+            <span>SEQUÊNCIA</span>
+        </div>
+
+        <div class="botao" onclick="abrirPapel('final')">
+            <strong>DOCUMENTO 05</strong>
+            <span>ARQUIVO FINAL</span>
+        </div>
+
+    </div>
+
+
+    <!-- MORSE -->
+
+    <div id="morse" class="papel">
+
+        <h2>DOCUMENTO 01</h2>
+
+        <div class="linha"></div>
+
+        <div class="codigo">
+            -.-. --- -.. .. --. ---
+        </div>
+
+        <div class="instrucao">
+            Um detetive deve saber reconhecer códigos.
+            Descubra o que esta mensagem diz.
+        </div>
+
+        <div class="resposta">
+
+            <input
+                id="respMorse"
+                placeholder="Sua resposta"
+            >
+
+            <button
+                class="confirmar"
+                onclick="verificarMorse()">
+                VERIFICAR
+            </button>
+
+            <div id="resultadoMorse" class="resultado"></div>
+
+        </div>
+
+        <button class="fechar" onclick="fechar()">
+            FECHAR
+        </button>
+
+    </div>
+
+
+    <!-- CÉSAR -->
+
+    <div id="cesar" class="papel">
+
+        <h2>DOCUMENTO 02</h2>
+
+        <div class="linha"></div>
+
+        <div class="codigo">
+            FDVD
+        </div>
+
+        <div class="instrucao">
+            As letras foram deslocadas.
+            Descubra a mensagem original.
+        </div>
+
+        <div class="resposta">
+
+            <input
+                id="respCesar"
+                placeholder="Sua resposta"
+            >
+
+            <button
+                class="confirmar"
+                onclick="verificarCesar()">
+                VERIFICAR
+            </button>
+
+            <div id="resultadoCesar" class="resultado"></div>
+
+        </div>
+
+        <button class="fechar" onclick="fechar()">
+            FECHAR
+        </button>
+
+    </div>
+
+
+    <!-- BINÁRIO -->
+
+    <div id="binario" class="papel">
+
+        <h2>DOCUMENTO 03</h2>
+
+        <div class="linha"></div>
+
+        <div class="codigo">
+            01000110
+        </div>
+
+        <div class="instrucao">
+            Nem sempre números são apenas números.
+            Converta esta sequência.
+        </div>
+
+        <div class="resposta">
+
+            <input
+                id="respBinario"
+                placeholder="Sua resposta"
+            >
+
+            <button
+                class="confirmar"
+                onclick="verificarBinario()">
+                VERIFICAR
+            </button>
+
+            <div id="resultadoBinario" class="resultado"></div>
+
+        </div>
+
+        <button class="fechar" onclick="fechar()">
+            FECHAR
+        </button>
+
+    </div>
+
+
+    <!-- A1Z26 -->
+
+    <div id="a1z26" class="papel">
+
+        <h2>DOCUMENTO 04</h2>
+
+        <div class="linha"></div>
+
+        <div class="codigo">
+            4 - 5 - 20 - 5 - 20 - 9 - 22 - 5
+        </div>
+
+        <div class="instrucao">
+            Cada número representa uma letra.
+            1 corresponde a A, 2 corresponde a B
+            e assim por diante.
+        </div>
+
+        <div class="resposta">
+
+            <input
+                id="respA1z26"
+                placeholder="Sua resposta"
+            >
+
+            <button
+                class="confirmar"
+                onclick="verificarA1z26()">
+                VERIFICAR
+            </button>
+
+            <div id="resultadoA1z26" class="resultado"></div>
+
+        </div>
+
+        <button class="fechar" onclick="fechar()">
+            FECHAR
+        </button>
+
+    </div>
+
+
+    <!-- FINAL -->
+
+    <div id="final" class="papel">
+
+        <h2>DOCUMENTO 05</h2>
+
+        <div class="linha"></div>
+
+        <div class="codigo">
+            - .- / -... .-.. .- / -.-. --- -.. .. --. ---
+        </div>
+
+        <div class="instrucao">
+            Você aprendeu quatro maneiras diferentes
+            de esconder uma mensagem.
+
+            <br><br>
+
+            Agora use o que aprendeu para descobrir
+            a última mensagem.
+        </div>
+
+        <div class="resposta">
+
+            <input
+                id="respFinal"
+                placeholder="Sua resposta"
+            >
+
+            <button
+                class="confirmar"
+                onclick="verificarFinal()">
+                VERIFICAR
+            </button>
+
+            <div id="resultadoFinal" class="resultado"></div>
+
+        </div>
+
+        <button class="fechar" onclick="fechar()">
+            FECHAR
+        </button>
+
+    </div>
+
+
+    <div id="mensagemFinal">
+
+        <h2>VOCÊ APRENDEU.</h2>
+
+        <p>
+            Agora você sabe procurar mensagens onde
+            outras pessoas só enxergam números e símbolos.
+        </p>
+
+        <p>
+            <strong>ARQUIVO 013 LIBERADO.</strong>
+        </p>
+
+        <button id="fase13" onclick="irParaFase13()">
+            CONTINUAR
+        </button>
+
+    </div>
+
+
+    <script>
+
+        let resolvidos = 0;
+
+        let concluidos = {
+            morse: false,
+            cesar: false,
+            binario: false,
+            a1z26: false
+        };
+
+
+        function abrirPapel(id) {
+
+            fechar();
+
+            document.getElementById(id).style.display = "block";
+
+            window.scrollTo({
+                top: document.getElementById(id).offsetTop - 20,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        function fechar() {
+
+            const papeis =
+                document.querySelectorAll(".papel");
+
+            papeis.forEach(papel => {
+                papel.style.display = "none";
+            });
+
+        }
+
+
+        function marcarResolvido(nome) {
+
+            if (!concluidos[nome]) {
+
+                concluidos[nome] = true;
+                resolvidos++;
+
+            }
+
+        }
+
+
+        function verificarMorse() {
+
+            const resposta =
+                document.getElementById("respMorse")
+                .value.trim().toLowerCase();
+
+            const resultado =
+                document.getElementById("resultadoMorse");
+
+            if (resposta === "codigo" ||
+                resposta === "código") {
+
+                resultado.innerHTML =
+                    "CORRETO.";
+
+                marcarResolvido("morse");
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.";
+
+            }
+
+        }
+
+
+        function verificarCesar() {
+
+            const resposta =
+                document.getElementById("respCesar")
+                .value.trim().toLowerCase();
+
+            const resultado =
+                document.getElementById("resultadoCesar");
+
+            if (resposta === "casa") {
+
+                resultado.innerHTML =
+                    "CORRETO.";
+
+                marcarResolvido("cesar");
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.";
+
+            }
+
+        }
+
+
+        function verificarBinario() {
+
+            const resposta =
+                document.getElementById("respBinario")
+                .value.trim().toLowerCase();
+
+            const resultado =
+                document.getElementById("resultadoBinario");
+
+            if (resposta === "f") {
+
+                resultado.innerHTML =
+                    "CORRETO.";
+
+                marcarResolvido("binario");
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.";
+
+            }
+
+        }
+
+
+        function verificarA1z26() {
+
+            const resposta =
+                document.getElementById("respA1z26")
+                .value.trim().toLowerCase();
+
+            const resultado =
+                document.getElementById("resultadoA1z26");
+
+            if (resposta === "detetive") {
+
+                resultado.innerHTML =
+                    "CORRETO.";
+
+                marcarResolvido("a1z26");
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.";
+
+            }
+
+        }
+
+
+        function verificarFinal() {
+
+            const resposta =
+                document.getElementById("respFinal")
+                .value.trim().toLowerCase();
+
+            const resultado =
+                document.getElementById("resultadoFinal");
+
+
+            if (resolvidos < 4) {
+
+                resultado.innerHTML =
+                    "VOCÊ AINDA NÃO ESTÁ PRONTO.<br><br>" +
+                    "Resolva os quatro documentos anteriores.";
+
+                return;
+            }
+
+
+            /*
+                A mensagem final em Morse é:
+                TA BLA CODIGO
+
+                Para manter a resposta simples:
+                TABELA CODIGO
+            */
+
+            if (resposta === "ta bla codigo" ||
+                resposta === "tabela codigo" ||
+                resposta === "tabela código") {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>" +
+                    "TREINAMENTO CONCLUÍDO.";
+
+                document.getElementById("mensagemFinal")
+                    .style.display = "block";
+
+                document.getElementById("fase13")
+                    .style.display = "inline-block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.<br><br>" +
+                    "Use o que você aprendeu.";
+
+            }
+
+        }
+
+
+        function irParaFase13() {
+
+            window.location.href = "fase13.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
