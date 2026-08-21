@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fase 10</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #070707;
+            color: white;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 800px;
+            max-width: 90%;
+            margin: auto;
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            letter-spacing: 5px;
+            font-size: 30px;
+        }
+
+        .descricao {
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .arquivos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .arquivo {
+            width: 200px;
+            min-height: 130px;
+
+            background: #111;
+            border: 1px solid #444;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .arquivo:hover {
+            background: #1b1b1b;
+            border-color: #777;
+            transform: translateY(-3px);
+        }
+
+        .icone {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .nome {
+            font-family: monospace;
+            color: #ccc;
+        }
+
+        .conteudo {
+            display: none;
+            margin: 35px auto 0;
+            padding: 25px;
+
+            max-width: 600px;
+
+            background: #0e0e0e;
+            border: 1px solid #333;
+        }
+
+        .conteudo img {
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .conteudo p {
+            line-height: 1.7;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .relatorio {
+            font-family: Georgia, serif;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .data {
+            margin-top: 40px;
+        }
+
+        input {
+            width: 220px;
+            padding: 12px;
+
+            background: #111;
+            color: white;
+
+            border: 1px solid #555;
+
+            text-align: center;
+            font-size: 18px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+
+            background: #111;
+            color: white;
+
+            border: 1px solid #555;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #222;
+        }
+
+        #resultado {
+            margin-top: 25px;
+            min-height: 30px;
+        }
+
+        #continuar {
+            display: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>FASE 10</h1>
+
+        <div class="descricao">
+            Três arquivos foram encontrados.
+        </div>
+
+
+        <div class="arquivos">
+
+            <div class="arquivo" onclick="abrir('foto')">
+                <div class="icone">▣</div>
+                <div class="nome">foto.jpg</div>
+            </div>
+
+            <div class="arquivo" onclick="abrir('audio')">
+                <div class="icone">♫</div>
+                <div class="nome">gravacao.mp3</div>
+            </div>
+
+            <div class="arquivo" onclick="abrir('relatorio')">
+                <div class="icone">▤</div>
+                <div class="nome">diario.txt</div>
+            </div>
+
+        </div>
+
+
+        <!-- FOTO -->
+
+        <div id="foto" class="conteudo">
+
+            <img src="foto.jpg" alt="Fotografia">
+
+            <p>
+                Há alguma coisa escrita na fotografia.
+            </p>
+
+            <p>
+                <strong>17</strong>
+            </p>
+
+        </div>
+
+
+        <!-- ÁUDIO -->
+
+        <div id="audio" class="conteudo">
+
+            <p>
+                Uma gravação antiga.
+            </p>
+
+            <audio controls>
+                <source src="gravacao.mp3" type="audio/mpeg">
+                Seu navegador não suporta áudio.
+            </audio>
+
+            <p>
+                A gravação revela o número:
+            </p>
+
+            <p>
+                <strong>10</strong>
+            </p>
+
+        </div>
+
+
+        <!-- DIÁRIO -->
+
+        <div id="relatorio" class="conteudo">
+
+            <div class="relatorio">
+
+                <p>
+                    Relatório encontrado junto aos arquivos.
+                </p>
+
+                <p>
+                    O documento parece estar relacionado
+                    ao diário encontrado anteriormente.
+                </p>
+
+                <p>
+                    No final da página existe uma anotação:
+                </p>
+
+                <p style="text-align:center;">
+                    <strong>2015</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="data">
+
+            <p>
+                As três pistas formam uma data.
+            </p>
+
+            <input
+                type="text"
+                id="resposta"
+                placeholder="DD/MM/AAAA"
+            >
+
+            <br>
+
+            <button onclick="verificar()">
+                CONFIRMAR
+            </button>
+
+            <div id="resultado"></div>
+
+            <button
+                id="continuar"
+                onclick="irParaFase11()">
+                CONTINUAR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function abrir(id) {
+
+            const elemento =
+                document.getElementById(id);
+
+            if (elemento.style.display === "block") {
+
+                elemento.style.display = "none";
+
+            } else {
+
+                elemento.style.display = "block";
+
+            }
+
+        }
+
+
+        function verificar() {
+
+            const resposta =
+                document
+                .getElementById("resposta")
+                .value
+                .trim();
+
+            const resultado =
+                document.getElementById("resultado");
+
+
+            if (resposta === "17/10/2015") {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>" +
+                    "VOCÊ ENCONTROU A DATA DO DIÁRIO.";
+
+                document.getElementById("continuar")
+                    .style.display = "block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "ERRADO.<br><br>" +
+                    "As três pistas ainda não foram conectadas.";
+
+            }
+
+        }
+
+
+        function irParaFase11() {
+
+            window.location.href = "fase11.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
