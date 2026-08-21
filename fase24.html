@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fase 24 - O Objeto Estranho</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at center, #1b1b1b, #070707);
+
+            color: white;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .topo {
+            text-align: center;
+
+            padding: 45px 20px 25px;
+        }
+
+        .topo h1 {
+            margin: 0;
+
+            font-size: 30px;
+
+            letter-spacing: 6px;
+        }
+
+        .topo p {
+            color: #777;
+        }
+
+        .papel {
+            width: 800px;
+            max-width: 92%;
+
+            margin: 35px auto;
+
+            padding: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1ead4,
+                    #e4dcc1
+                );
+
+            color: #29261f;
+
+            border: 1px solid #a49a80;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,0.55);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+        }
+
+        .cabecalho {
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+        }
+
+        .papel h2 {
+            text-align: center;
+
+            letter-spacing: 3px;
+        }
+
+        .linha {
+            height: 1px;
+
+            background: #aaa18a;
+
+            margin: 25px 0 35px;
+        }
+
+        .texto {
+            line-height: 1.8;
+
+            font-size: 17px;
+        }
+
+        .evidencias {
+            margin-top: 30px;
+
+            padding: 25px;
+
+            background: rgba(0,0,0,0.04);
+
+            border-left: 4px solid #777;
+
+            line-height: 1.9;
+        }
+
+        .objetos {
+            margin-top: 30px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+        }
+
+        .objeto {
+            padding: 25px;
+
+            background: rgba(0,0,0,0.045);
+
+            border: 1px solid #aaa18a;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+            font-size: 18px;
+
+            user-select: none;
+        }
+
+        .objeto:hover {
+            transform: scale(1.02);
+
+            background: rgba(0,0,0,0.09);
+        }
+
+        .objeto.selecionado {
+            background: #c8bea4;
+
+            border: 2px solid #555;
+        }
+
+        .pergunta {
+            margin-top: 35px;
+
+            text-align: center;
+        }
+
+        button {
+            padding: 11px 25px;
+
+            margin-top: 15px;
+
+            background: #ded5b9;
+
+            color: #29261f;
+
+            border: 1px solid #777;
+
+            cursor: pointer;
+
+            font-family: Georgia, serif;
+        }
+
+        button:hover {
+            background: #cec4a7;
+        }
+
+        #resultado {
+            min-height: 50px;
+
+            margin-top: 20px;
+
+            line-height: 1.7;
+
+            font-weight: bold;
+        }
+
+        #continuar {
+            display: none;
+
+            background: #181818;
+
+            color: white;
+
+            border-color: #555;
+        }
+
+        .regra {
+            margin-top: 30px;
+
+            padding: 20px;
+
+            border: 1px dashed #888;
+
+            text-align: center;
+
+            font-style: italic;
+
+            line-height: 1.7;
+        }
+
+        .rodape {
+            text-align: center;
+
+            color: #555;
+
+            font-size: 12px;
+
+            margin: 40px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="topo">
+
+        <h1>FASE 24</h1>
+
+        <p>ARQUIVO 024 — O OBJETO ESTRANHO</p>
+
+    </div>
+
+
+    <div class="papel">
+
+        <div class="cabecalho">
+            DOCUMENTO DE INVESTIGAÇÃO
+        </div>
+
+        <h2>OBSERVE ANTES DE CONCLUIR</h2>
+
+        <div class="linha"></div>
+
+
+        <div class="texto">
+
+            <p>
+                Uma cena pode contar uma história.
+            </p>
+
+            <p>
+                Mas um objeto fora do lugar pode
+                mudar completamente essa história.
+            </p>
+
+            <p>
+                Você encontrou cinco objetos em uma sala.
+            </p>
+
+            <p>
+                Apenas um deles apresenta algo
+                que não combina com as evidências.
+            </p>
+
+        </div>
+
+
+        <div class="evidencias">
+
+            <strong>EVIDÊNCIAS DA CENA</strong>
+
+            <br><br>
+
+            • A sala estava fechada.
+
+            <br>
+
+            • Não havia chovido naquele dia.
+
+            <br>
+
+            • Quatro objetos estavam completamente secos.
+
+            <br>
+
+            • Um dos objetos estava molhado.
+
+            <br>
+
+            • Não havia nenhuma janela aberta.
+
+        </div>
+
+
+        <h3 style="margin-top:35px; text-align:center;">
+            OBJETOS ENCONTRADOS
+        </h3>
+
+
+        <div class="objetos">
+
+
+            <div
+                class="objeto"
+                data-id="chave"
+                onclick="selecionar(this)"
+            >
+                CHAVE
+            </div>
+
+
+            <div
+                class="objeto"
+                data-id="relogio"
+                onclick="selecionar(this)"
+            >
+                RELÓGIO
+            </div>
+
+
+            <div
+                class="objeto"
+                data-id="copo"
+                onclick="selecionar(this)"
+            >
+                COPO
+            </div>
+
+
+            <div
+                class="objeto"
+                data-id="guarda"
+                onclick="selecionar(this)"
+            >
+                GUARDA-CHUVA
+            </div>
+
+
+            <div
+                class="objeto"
+                data-id="luvas"
+                onclick="selecionar(this)"
+            >
+                LUVAS
+            </div>
+
+
+        </div>
+
+
+        <div class="pergunta">
+
+            <p>
+                Qual objeto deve ser investigado primeiro?
+            </p>
+
+            <button onclick="verificar()">
+                INVESTIGAR OBJETO
+            </button>
+
+            <div id="resultado"></div>
+
+            <button
+                id="continuar"
+                onclick="irParaFase25()">
+
+                CONTINUAR
+
+            </button>
+
+        </div>
+
+
+        <div class="regra">
+
+            <strong>REGRA 024</strong>
+
+            <br><br>
+
+            "Um objeto estranho é uma pista,
+            não uma conclusão."
+
+        </div>
+
+    </div>
+
+
+    <div class="rodape">
+
+        ARQUIVO 024 — INVESTIGAÇÃO EM ANDAMENTO
+
+    </div>
+
+
+    <script>
+
+        let objetoSelecionado = null;
+
+
+        function selecionar(elemento) {
+
+            document
+                .querySelectorAll(".objeto")
+                .forEach(objeto => {
+
+                    objeto.classList.remove(
+                        "selecionado"
+                    );
+
+                });
+
+
+            elemento.classList.add(
+                "selecionado"
+            );
+
+
+            objetoSelecionado =
+                elemento.dataset.id;
+
+        }
+
+
+        function verificar() {
+
+            const resultado =
+                document.getElementById("resultado");
+
+
+            if (!objetoSelecionado) {
+
+                resultado.innerHTML =
+                    "Escolha um objeto para investigar.";
+
+                return;
+
+            }
+
+
+            if (objetoSelecionado === "guarda") {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>" +
+
+                    "O guarda-chuva estava molhado, " +
+                    "mesmo sem ter chovido naquele dia." +
+
+                    "<br><br>" +
+
+                    "Além disso, a sala estava fechada " +
+                    "e não havia nenhuma janela aberta." +
+
+                    "<br><br>" +
+
+                    "Isso não prova o que aconteceu." +
+
+                    "Mas é uma pista que merece investigação.";
+
+
+                document
+                    .getElementById("continuar")
+                    .style.display = "inline-block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "Esse objeto não apresenta " +
+                    "a anomalia descrita pelas evidências." +
+
+                    "<br><br>" +
+
+                    "Observe qual objeto estava molhado.";
+
+            }
+
+        }
+
+
+        function irParaFase25() {
+
+            window.location.href = "fase25.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
