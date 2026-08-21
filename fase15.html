@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fase 15</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            background:
+                radial-gradient(circle at center, #1b1b1b, #070707);
+
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .topo {
+            text-align: center;
+            padding: 45px 20px 25px;
+        }
+
+        .topo h1 {
+            margin: 0;
+            font-size: 30px;
+            letter-spacing: 6px;
+        }
+
+        .topo p {
+            color: #777;
+        }
+
+        .papel {
+            width: 720px;
+            max-width: 90%;
+
+            margin: 35px auto;
+            padding: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f1ead4,
+                    #e4dcc1
+                );
+
+            color: #29261f;
+
+            border: 1px solid #a49a80;
+
+            box-shadow:
+                0 12px 35px rgba(0,0,0,0.55);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+        }
+
+        .cabecalho {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            letter-spacing: 3px;
+        }
+
+        .papel h2 {
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        .linha {
+            height: 1px;
+            background: #aaa18a;
+            margin: 25px 0 35px;
+        }
+
+        .texto {
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .documentos {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .documento {
+            padding: 20px;
+
+            background: rgba(0,0,0,0.045);
+
+            border: 1px solid #aaa18a;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .documento:hover {
+            background: rgba(0,0,0,0.09);
+        }
+
+        .documento strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .conteudo {
+            display: none;
+
+            margin-top: 15px;
+            padding: 20px;
+
+            background: rgba(0,0,0,0.05);
+
+            border-left: 4px solid #777;
+
+            text-align: center;
+        }
+
+        .codigo {
+            font-family: monospace;
+            font-size: 22px;
+            letter-spacing: 3px;
+            line-height: 2;
+        }
+
+        .resumo {
+            display: none;
+
+            margin-top: 35px;
+            padding: 25px;
+
+            border-top: 1px solid #aaa18a;
+        }
+
+        .resumo strong {
+            font-size: 20px;
+        }
+
+        .pergunta {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        input {
+            width: 350px;
+            max-width: 100%;
+
+            padding: 13px;
+
+            background: #eee8d5;
+            color: #222;
+
+            border: 1px solid #888;
+
+            font-family: Georgia, serif;
+            font-size: 17px;
+
+            text-align: center;
+        }
+
+        button {
+            margin-top: 15px;
+
+            padding: 11px 25px;
+
+            background: #ded5b9;
+            color: #29261f;
+
+            border: 1px solid #777;
+
+            cursor: pointer;
+
+            font-family: Georgia, serif;
+        }
+
+        button:hover {
+            background: #cec4a7;
+        }
+
+        #resultado {
+            min-height: 30px;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        #continuar {
+            display: none;
+
+            background: #181818;
+            color: white;
+            border-color: #555;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="topo">
+
+        <h1>FASE 15</h1>
+
+        <p>ARQUIVO 015 — REFERÊNCIA: 6B</p>
+
+    </div>
+
+
+    <div class="papel">
+
+        <div class="cabecalho">
+            DOCUMENTO CONFIDENCIAL
+        </div>
+
+        <h2>ARQUIVO 6B</h2>
+
+        <div class="linha"></div>
+
+        <div class="texto">
+
+            <p>
+                Você encontrou a referência à Porta 6B.
+            </p>
+
+            <p>
+                Mas existe algo estranho.
+            </p>
+
+            <p>
+                A porta não era o fim da investigação.
+            </p>
+
+            <p>
+                Três documentos foram encontrados junto dela.
+            </p>
+
+            <p>
+                Cada documento contém uma parte da resposta.
+            </p>
+
+        </div>
+
+
+        <div class="documentos">
+
+            <!-- DOCUMENTO A -->
+
+            <div class="documento" onclick="abrir('a')">
+
+                <strong>DOCUMENTO A</strong>
+
+                Registro de ocorrência
+
+                <div id="a" class="conteudo">
+
+                    <div class="codigo">
+                        17/10/2015
+                        <br>
+                        23:17
+                    </div>
+
+                    <p>
+                        Registro encontrado no local.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DOCUMENTO B -->
+
+            <div class="documento" onclick="abrir('b')">
+
+                <strong>DOCUMENTO B</strong>
+
+                Gravação transcrita
+
+                <div id="b" class="conteudo">
+
+                    <div class="codigo">
+                        ... --- ...
+                        <br>
+                        /
+                        <br>
+                        .--. --- .-. - .-
+                    </div>
+
+                    <p>
+                        A mensagem parece estar em código Morse.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DOCUMENTO C -->
+
+            <div class="documento" onclick="abrir('c')">
+
+                <strong>DOCUMENTO C</strong>
+
+                Bilhete encontrado
+
+                <div id="c" class="conteudo">
+
+                    <div class="codigo">
+                        FDVD
+                    </div>
+
+                    <p>
+                        A mensagem parece estar em uma cifra.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="resumo" class="resumo">
+
+            <p>
+                Você conseguiu interpretar os três documentos.
+            </p>
+
+            <p>
+                <strong>DATA:</strong> 17/10/2015
+            </p>
+
+            <p>
+                <strong>MENSAGEM:</strong> SOS PORTA
+            </p>
+
+            <p>
+                <strong>LOCAL:</strong> CASA
+            </p>
+
+            <p>
+                Agora junte as três informações.
+            </p>
+
+        </div>
+
+
+        <div class="pergunta">
+
+            <p>
+                O que aconteceu na casa em 17/10/2015?
+            </p>
+
+            <input
+                type="text"
+                id="resposta"
+                placeholder="Digite sua resposta"
+            >
+
+            <br>
+
+            <button onclick="verificar()">
+                INVESTIGAR
+            </button>
+
+            <div id="resultado"></div>
+
+            <button
+                id="continuar"
+                onclick="irParaFase16()">
+
+                CONTINUAR
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let abertos = {
+            a: false,
+            b: false,
+            c: false
+        };
+
+
+        function abrir(id) {
+
+            const elemento =
+                document.getElementById(id);
+
+            if (elemento.style.display === "block") {
+
+                elemento.style.display = "none";
+
+                abertos[id] = false;
+
+            } else {
+
+                elemento.style.display = "block";
+
+                abertos[id] = true;
+
+            }
+
+            verificarDocumentos();
+
+        }
+
+
+        function verificarDocumentos() {
+
+            if (
+                abertos.a &&
+                abertos.b &&
+                abertos.c
+            ) {
+
+                document.getElementById("resumo")
+                    .style.display = "block";
+
+            }
+
+        }
+
+
+        function verificar() {
+
+            const resposta =
+                document
+                .getElementById("resposta")
+                .value
+                .trim()
+                .toLowerCase();
+
+            const resultado =
+                document
+                .getElementById("resultado");
+
+
+            if (
+                resposta.includes("sos") &&
+                resposta.includes("casa") &&
+                resposta.includes("17/10/2015")
+            ) {
+
+                resultado.innerHTML =
+                    "CORRETO.<br><br>" +
+                    "DATA + MENSAGEM + LOCAL CONFIRMADOS.";
+
+                document.getElementById("continuar")
+                    .style.display = "inline-block";
+
+            } else {
+
+                resultado.innerHTML =
+                    "AINDA NÃO.<br><br>" +
+                    "Junte as informações dos três documentos.";
+
+            }
+
+        }
+
+
+        function irParaFase16() {
+
+            window.location.href = "fase16.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
