@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Caso Nº 31001 - Fase 33</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: #0d0d0d;
+        color: #e8e8e8;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 900px;
+        margin: auto;
+        padding-top: 52px;
+    }
+
+    h1 {
+        margin: 0 0 14px;
+        font-size: 30px;
+        letter-spacing: 7px;
+    }
+
+    .descricao {
+        color: #999;
+        font-size: 16px;
+        line-height: 1.8;
+        margin-bottom: 45px;
+    }
+
+    .caixa {
+        width: 500px;
+        max-width: 90%;
+        margin: auto;
+        border: 1px solid #3b3b3b;
+        padding: 35px;
+        background: #111;
+    }
+
+    .titulo {
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+    }
+
+    input {
+        width: 100%;
+        padding: 15px;
+        background: #151515;
+        border: 1px solid #555;
+        color: white;
+        outline: none;
+        text-align: center;
+        font-size: 15px;
+    }
+
+    button {
+        margin-top: 18px;
+        padding: 13px 28px;
+        background: transparent;
+        border: 1px solid #555;
+        color: #ddd;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    button:hover {
+        background: #1b1b1b;
+        border-color: #888;
+    }
+
+    #resultado {
+        margin-top: 25px;
+        min-height: 22px;
+        color: #aaa;
+    }
+</style>
+</head>
+
+<body>
+
+<!--
+    NÃO IGNORE ESTE COMENTÁRIO.
+    A resposta da fase é: INSPECIONAR
+-->
+
+<div class="container">
+
+    <h1>CASO Nº 31001</h1>
+
+    <div class="descricao">
+        FASE 33<br>
+        Existe algo nesta página que você não consegue ver.
+        <br>
+        Descubra a informação escondida.
+    </div>
+
+    <div class="caixa">
+
+        <div class="titulo">
+            QUAL É A RESPOSTA?
+        </div>
+
+        <input
+            type="text"
+            id="resposta"
+            placeholder="Digite a resposta">
+
+        <br>
+
+        <button onclick="verificar()">
+            CONFIRMAR
+        </button>
+
+        <div id="resultado"></div>
+
+    </div>
+
+</div>
+
+<script>
+function verificar() {
+
+    const resposta = document
+        .getElementById("resposta")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if (resposta === "inspecionar") {
+
+        document.getElementById("resultado").innerHTML =
+            "RESPOSTA CORRETA.";
+
+        setTimeout(() => {
+            window.location.href = "fase34.html";
+        }, 1200);
+
+    } else {
+
+        document.getElementById("resultado").innerHTML =
+            "RESPOSTA INCORRETA.";
+
+    }
+}
+</script>
+
+</body>
+</html>
