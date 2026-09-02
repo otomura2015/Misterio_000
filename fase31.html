@@ -106,11 +106,6 @@
             margin-top: 25px;
             font-size: 14px;
         }
-
-        /* Coordenada escondida na página */
-        .coordenada {
-            display: none;
-        }
     </style>
 </head>
 
@@ -129,23 +124,23 @@
     <div class="imagens">
 
         <div class="evidencia">
-            <img src="image_1.png" alt="Evidência 1">
+            <img src="imagem_1.png" alt="Evidência 1">
         </div>
 
         <div class="evidencia">
-            <img src="image_2.png" alt="Evidência 2">
+            <img src="imagem_2.png" alt="Evidência 2">
         </div>
 
         <div class="evidencia">
-            <img src="image_3.png" alt="Evidência 3">
+            <img src="imagem_3.png" alt="Evidência 3">
         </div>
 
         <div class="evidencia">
-            <img src="image_4.png" alt="Evidência 4">
+            <img src="imagem_4.png" alt="Evidência 4">
         </div>
 
         <div class="evidencia">
-            <img src="image.png" alt="Evidência 5">
+            <img src="imagem.png" alt="Evidência 5">
         </div>
 
     </div>
@@ -156,6 +151,7 @@
         type="text"
         id="resposta"
         placeholder="Digite a cidade"
+        autocomplete="off"
     >
 
     <button onclick="verificar()">
@@ -187,17 +183,28 @@ function verificar() {
     let resultado = document.getElementById("resultado");
 
     if (resposta === "") {
+
         resultado.innerHTML = "Digite uma resposta.";
         resultado.style.color = "#999";
+
         return;
     }
 
     if (resposta === "votorantim") {
+
         resultado.innerHTML = "RESPOSTA CORRETA.";
         resultado.style.color = "#dcdcdc";
+
+        // Depois de 1,2 segundos, vai para a fase 32
+        setTimeout(function() {
+            window.location.href = "fase32.html";
+        }, 1200);
+
     } else {
+
         resultado.innerHTML = "RESPOSTA INCORRETA.";
         resultado.style.color = "#888";
+
     }
 }
 
